@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>Obs290622_181228_Tag44372</name>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>0.5</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal3/icon49.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>0.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal3/icon49.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T21:50:11Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920233,48.127719,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T21:54:58Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920115,48.127511,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T21:59:59Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920365,48.127386,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:05:05Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920459,48.127346,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:10:01Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920151,48.127714,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:15:05Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920300,48.127370,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:20:14Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920484,48.127395,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:24:59Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920449,48.127396,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:31:25Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920403,48.127399,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<TimeStamp><when>2022-06-29T22:38:25Z</when></TimeStamp>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>-122.920456,48.127270,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Path Taken</name>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+-122.920233,48.127719,0 -122.920115,48.127511,0 -122.920365,48.127386,0 -122.920459,48.127346,0 -122.920151,48.127714,0 -122.920300,48.127370,0 -122.920484,48.127395,0 -122.920449,48.127396,0 -122.920403,48.127399,0 -122.920456,48.127270,0 </coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

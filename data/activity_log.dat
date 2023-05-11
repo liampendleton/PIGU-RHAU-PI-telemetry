@@ -1,0 +1,811 @@
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 11:28 AM >> Software started (Version:2.35)
+22.06.22 11:29 AM >> Connecting to device
+22.06.22 11:29 AM >> ERROR: Could not connect to device
+22.06.22 11:30 AM >> Connecting to device
+22.06.22 11:30 AM >> ERROR: Could not connect to device
+22.06.22 11:33 AM >> Connecting to device
+22.06.22 11:33 AM >> ERROR: Could not connect to device
+22.06.22 1:12 PM >> Connecting to device
+22.06.22 1:12 PM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 1:12 PM >> Software started (Version:2.35)
+22.06.22 1:13 PM >> Connecting to device
+22.06.22 1:13 PM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 1:16 PM >> Software started (Version:2.35)
+22.06.22 1:16 PM >> Connecting to device
+22.06.22 1:16 PM >> ERROR: Could not connect to device
+22.06.22 1:17 PM >> Connecting to device
+22.06.22 1:17 PM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 1:19 PM >> Software started (Version:2.35)
+22.06.22 1:20 PM >> Connecting to device
+22.06.22 1:20 PM >> ERROR: Could not connect to device
+22.06.22 1:27 PM >> Connecting to device
+22.06.22 1:27 PM >> Base Station added to configuration file
+22.06.22 1:27 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 1:28 PM >> User setting new schedule for device
+22.06.22 1:28 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 1:28 PM >> Schedule successfully updated on device
+22.06.22 1:29 PM >> Exited wireless configuration mode.
+22.06.22 1:39 PM >> User setting new schedule for device
+22.06.22 1:39 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 1:39 PM >> Schedule successfully updated on device
+22.06.22 1:40 PM >> Wireless config request from device 44072 (204)[180222-NanoFix2RF9]
+22.06.22 1:40 PM >> User setting new schedule for device
+22.06.22 1:40 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   13:55:52 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 1:48 PM >> Exited wireless configuration mode.
+22.06.22 1:48 PM >> ERROR: New schedule not received correctly by device
+22.06.22 1:48 PM >> User setting new schedule for device
+22.06.22 1:48 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 1:48 PM >> Schedule successfully updated on device
+22.06.22 1:48 PM >> Wireless config request from device 44072 (204)[180222-NanoFix2RF9]
+22.06.22 1:48 PM >> User setting new schedule for device
+22.06.22 1:48 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   13:55:58 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 1:50 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 1:51 PM >> Wireless config request from device 44072 (204)[180222-NanoFix2RF9]
+22.06.22 1:51 PM >> User setting new schedule for device
+22.06.22 1:51 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   13:59:29 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 1:52 PM >> Schedule successfully updated on device
+22.06.22 1:53 PM >> Wireless config request from device 44072 (204)[180222-NanoFix2RF9]
+22.06.22 1:53 PM >> User setting new schedule for device
+22.06.22 1:53 PM >> NanoFix configuration cancelled by user
+22.06.22 2:06 PM >> User setting new schedule for device
+22.06.22 2:06 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 2:07 PM >> User requested cancellation of wireless config mode
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 2:08 PM >> Software started (Version:2.35)
+22.06.22 2:08 PM >> Connecting to device
+22.06.22 2:08 PM >> ERROR: Could not connect to device
+22.06.22 2:08 PM >> Connecting to device
+22.06.22 2:08 PM >> ERROR: Could not connect to device
+22.06.22 2:09 PM >> Connecting to device
+22.06.22 2:09 PM >> ERROR: Could not connect to device
+22.06.22 2:09 PM >> Connecting to device
+22.06.22 2:09 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:10 PM >> User chose not to update device schedule
+22.06.22 2:16 PM >> Lost contact with device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 2:18 PM >> Software started (Version:2.35)
+22.06.22 2:19 PM >> Connecting to device
+22.06.22 2:19 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:19 PM >> User setting new schedule for device
+22.06.22 2:19 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 2:19 PM >> Schedule successfully updated on device
+22.06.22 2:21 PM >> Wireless config request from device 44072 (203)[180222-NanoFix2RF9]
+22.06.22 2:21 PM >> User setting new schedule for device
+22.06.22 2:21 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   14:26:41 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 2:22 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 2:23 PM >> User setting new schedule for device
+22.06.22 2:23 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 2:24 PM >> Wireless config request from device 44072 (203)[180222-NanoFix2RF9]
+22.06.22 2:24 PM >> User setting new schedule for device
+22.06.22 2:24 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   14:30:18 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 2:25 PM >> Schedule successfully updated on device
+22.06.22 2:26 PM >> User requested cancellation of wireless config mode
+22.06.22 2:27 PM >> Exited wireless configuration mode.
+22.06.22 2:29 PM >> Lost contact with device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 2:30 PM >> Software started (Version:2.35)
+22.06.22 2:31 PM >> Connecting to device
+22.06.22 2:31 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:31 PM >> Downloading data from device....
+22.06.22 2:31 PM >> 1 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_143125_BS50705.raw
+22.06.22 2:31 PM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_143125_BS50705.raw into individual tag files
+22.06.22 2:31 PM >> Writing GPS data for tag ID 44072
+22.06.22 2:32 PM >> User chose not to update device schedule
+22.06.22 2:32 PM >> User chose to disconnect from device. Final battery reading of 4.05V
+22.06.22 2:34 PM >> Connecting to device
+22.06.22 2:34 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:34 PM >> User chose not to update device schedule
+22.06.22 2:37 PM >> Opening file C:\Users\conve\OneDrive\Documents\Sarah Documents\Data\Obs220622_143125_Tag44072.raw for processing
+22.06.22 2:37 PM >> File contains 1 observation sets for processing
+22.06.22 2:37 PM >> Downloading missing ephemeris files
+22.06.22 2:38 PM >> Ephemeris check complete
+22.06.22 2:38 PM >> Default time search window being used
+22.06.22 2:38 PM >> Checking start position
+22.06.22 2:38 PM >> Proceeding with current start position (Lat:.000000 Lon:.000000 Hgt:.0m)
+22.06.22 2:38 PM >> Determining initial clock offset
+22.06.22 2:38 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+22.06.22 2:38 PM >> Data processing aborted
+22.06.22 2:38 PM >> Opening file C:\Users\conve\OneDrive\Documents\Sarah Documents\Data\Obs220622_143125_Tag44072.raw for processing
+22.06.22 2:38 PM >> File contains 1 observation sets for processing
+22.06.22 2:38 PM >> Downloading missing ephemeris files
+22.06.22 2:38 PM >> Ephemeris check complete
+22.06.22 2:38 PM >> Default time search window being used
+22.06.22 2:38 PM >> Checking start position
+22.06.22 2:38 PM >> Start position updated by user
+22.06.22 2:38 PM >> Proceeding with updated start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+22.06.22 2:39 PM >> Determining initial clock offset
+22.06.22 2:39 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+22.06.22 2:39 PM >> Data processing aborted
+22.06.22 2:40 PM >> Opening file C:\Users\conve\OneDrive\Documents\Sarah Documents\Data\Obs220622_143125_Tag44072.raw for processing
+22.06.22 2:40 PM >> File contains 1 observation sets for processing
+22.06.22 2:40 PM >> Downloading missing ephemeris files
+22.06.22 2:40 PM >> Ephemeris check complete
+22.06.22 2:40 PM >> Default time search window being used
+22.06.22 2:40 PM >> Checking start position
+22.06.22 2:40 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+22.06.22 2:40 PM >> Determining initial clock offset
+22.06.22 2:40 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+22.06.22 2:40 PM >> Data processing aborted
+22.06.22 2:40 PM >> Opening file C:\Users\conve\OneDrive\Documents\Sarah Documents\Data\Obs220622_143125_Tag44072.raw for processing
+22.06.22 2:40 PM >> File contains 1 observation sets for processing
+22.06.22 2:40 PM >> Downloading missing ephemeris files
+22.06.22 2:40 PM >> Ephemeris check complete
+22.06.22 2:40 PM >> Default time search window being used
+22.06.22 2:40 PM >> Checking start position
+22.06.22 2:40 PM >> Start position updated by user
+22.06.22 2:40 PM >> Proceeding with updated start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+22.06.22 2:41 PM >> Determining initial clock offset
+22.06.22 2:41 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+22.06.22 2:41 PM >> Data processing aborted
+22.06.22 2:45 PM >> User chose to disconnect from device. Final battery reading of 4.05V
+22.06.22 2:45 PM >> Connecting to device
+22.06.22 2:45 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:45 PM >> User chose not to update device schedule
+22.06.22 2:49 PM >> Lost contact with device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 2:49 PM >> Software started (Version:2.35)
+22.06.22 2:49 PM >> Connecting to device
+22.06.22 2:49 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:50 PM >> User setting new schedule for device
+22.06.22 2:50 PM >> Base station configuration cancelled by user
+22.06.22 2:53 PM >> User chose to disconnect from device. Final battery reading of 4.05V
+22.06.22 2:53 PM >> Connecting to device
+22.06.22 2:53 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 2:53 PM >> User chose not to update device schedule
+22.06.22 2:54 PM >> User setting new schedule for device
+22.06.22 2:54 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 2:54 PM >> Schedule successfully updated on device
+22.06.22 2:54 PM >> Wireless config request from device 44505 (205)[180222-NanoFix2RF9]
+22.06.22 2:54 PM >> User setting new schedule for device
+22.06.22 2:54 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -    1 minute
+				 Tag start time -   14:56:23 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 2:55 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 2:55 PM >> User setting new schedule for device
+22.06.22 2:55 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 2:56 PM >> Wireless config request from device 44505 (205)[180222-NanoFix2RF9]
+22.06.22 2:56 PM >> User setting new schedule for device
+22.06.22 2:56 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -    1 minute
+				 Tag start time -   14:58:19 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 2:56 PM >> Schedule successfully updated on device
+22.06.22 3:02 PM >> Exited wireless configuration mode.
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 3:03 PM >> Software started (Version:2.35)
+22.06.22 3:03 PM >> Connecting to device
+22.06.22 3:03 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 3:03 PM >> Downloading data from device....
+22.06.22 3:03 PM >> 1 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_150328_BS50705.raw
+22.06.22 3:03 PM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_150328_BS50705.raw into individual tag files
+22.06.22 3:03 PM >> Writing GPS data for tag ID 44505
+22.06.22 3:03 PM >> User chose not to update device schedule
+22.06.22 3:03 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44505\Obs220622_150328_Tag44505.raw for processing
+22.06.22 3:03 PM >> File contains 1 observation sets for processing
+22.06.22 3:03 PM >> Downloading missing ephemeris files
+22.06.22 3:04 PM >> Ephemeris check complete
+22.06.22 3:04 PM >> Default time search window being used
+22.06.22 3:04 PM >> Checking start position
+22.06.22 3:04 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+22.06.22 3:04 PM >> Determining initial clock offset
+22.06.22 3:04 PM >> Using observations on line 1 to calculate initial time offset
+22.06.22 3:04 PM >> INFO: Ephemeris file brdc1730.22n contains 383 ephemerides
+22.06.22 3:04 PM >> Initial time offset calculated to be 5.4 s
+22.06.22 3:04 PM >> Applying offset and re-starting data processing from start of file
+22.06.22 3:04 PM >> Data processing complete
+22.06.22 3:05 PM >> User setting new schedule for device
+22.06.22 3:05 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 3:05 PM >> Schedule successfully updated on device
+22.06.22 3:06 PM >> Wireless config request from device 44505 (204)[180222-NanoFix2RF9]
+22.06.22 3:06 PM >> User setting new schedule for device
+22.06.22 3:06 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   15:11:33 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 3:06 PM >> Schedule successfully updated on device
+22.06.22 3:07 PM >> User chose to disconnect from device. Final battery reading of 4.07V
+22.06.22 3:07 PM >> Results data (1 epochs of data) saved to file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44505\Obs220622_150328_Tag44505.pos
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+22.06.22 4:12 PM >> Software started (Version:2.35)
+22.06.22 4:12 PM >> Connecting to device
+22.06.22 4:12 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+22.06.22 4:12 PM >> Downloading data from device....
+22.06.22 4:12 PM >> 1 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_161240_BS50705.raw
+22.06.22 4:12 PM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs220622_161240_BS50705.raw into individual tag files
+22.06.22 4:12 PM >> Writing GPS data for tag ID 44505
+22.06.22 4:12 PM >> User chose not to update device schedule
+22.06.22 4:12 PM >> User setting new schedule for device
+22.06.22 4:12 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 4:13 PM >> Exited wireless configuration mode.
+22.06.22 4:13 PM >> Schedule successfully updated on device
+22.06.22 4:13 PM >> User setting new schedule for device
+22.06.22 4:13 PM >> Base Station Configuration Set : Base Station Enabled
+22.06.22 4:13 PM >> Schedule successfully updated on device
+22.06.22 4:14 PM >> Wireless config request from device 44720 (205)[180222-NanoFix2RF9]
+22.06.22 4:14 PM >> User setting new schedule for device
+22.06.22 4:14 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:19:41 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:14 PM >> Schedule successfully updated on device
+22.06.22 4:16 PM >> Wireless config request from device 44469 (204)[180222-NanoFix2RF9]
+22.06.22 4:16 PM >> User setting new schedule for device
+22.06.22 4:16 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:21:41 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:16 PM >> Schedule successfully updated on device
+22.06.22 4:21 PM >> Wireless config request from device 44151 (204)[180222-NanoFix2RF9]
+22.06.22 4:21 PM >> User setting new schedule for device
+22.06.22 4:21 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:27:00 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:22 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 4:23 PM >> Wireless config request from device 44151 (204)[180222-NanoFix2RF9]
+22.06.22 4:23 PM >> User setting new schedule for device
+22.06.22 4:23 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:28:53 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:24 PM >> Schedule successfully updated on device
+22.06.22 4:24 PM >> Wireless config request from device 44369 (206)[180222-NanoFix2RF9]
+22.06.22 4:24 PM >> User setting new schedule for device
+22.06.22 4:24 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:30:05 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:25 PM >> Schedule successfully updated on device
+22.06.22 4:25 PM >> Wireless config request from device 44149 (203)[180222-NanoFix2RF9]
+22.06.22 4:25 PM >> User setting new schedule for device
+22.06.22 4:25 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:30:58 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:26 PM >> Schedule successfully updated on device
+22.06.22 4:26 PM >> Wireless config request from device 44167 (205)[180222-NanoFix2RF9]
+22.06.22 4:26 PM >> User setting new schedule for device
+22.06.22 4:26 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:31:51 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:26 PM >> Schedule successfully updated on device
+22.06.22 4:28 PM >> Wireless config request from device 44617 (205)[180222-NanoFix2RF9]
+22.06.22 4:28 PM >> User setting new schedule for device
+22.06.22 4:28 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:33:22 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:28 PM >> Schedule successfully updated on device
+22.06.22 4:29 PM >> Wireless config request from device 44363 (205)[180222-NanoFix2RF9]
+22.06.22 4:29 PM >> User setting new schedule for device
+22.06.22 4:29 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:34:18 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:29 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 4:29 PM >> Wireless config request from device 44363 (204)[180222-NanoFix2RF9]
+22.06.22 4:29 PM >> User setting new schedule for device
+22.06.22 4:29 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:35:08 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:30 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+22.06.22 4:30 PM >> Wireless config request from device 44363 (205)[180222-NanoFix2RF9]
+22.06.22 4:30 PM >> User setting new schedule for device
+22.06.22 4:30 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   16:35:55 on 22/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+22.06.22 4:31 PM >> Schedule successfully updated on device
+22.06.22 4:32 PM >> User requested cancellation of wireless config mode
+22.06.22 4:32 PM >> Exited wireless configuration mode.
+22.06.22 4:32 PM >> User chose to disconnect from device. Final battery reading of 4.09V
+23.06.22 10:26 AM >> Connecting to device
+23.06.22 10:26 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+23.06.22 10:26 AM >> Downloading data from device....
+23.06.22 10:26 AM >> 5 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs230622_102607_BS50705.raw
+23.06.22 10:26 AM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs230622_102607_BS50705.raw into individual tag files
+23.06.22 10:26 AM >> Writing GPS data for tag ID 44720
+23.06.22 10:26 AM >> Writing GPS data for tag ID 44469
+23.06.22 10:26 AM >> Writing GPS data for tag ID 44369
+23.06.22 10:26 AM >> Writing GPS data for tag ID 44167
+23.06.22 10:26 AM >> Writing GPS data for tag ID 44149
+23.06.22 10:26 AM >> User chose not to update device schedule
+23.06.22 10:31 AM >> User chose to disconnect from device. Final battery reading of 4.07V
+23.06.22 10:32 AM >> Connecting to device
+23.06.22 10:32 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+23.06.22 10:33 AM >> User chose not to update device schedule
+23.06.22 10:33 AM >> User setting new schedule for device
+23.06.22 10:33 AM >> Base Station Configuration Set : Base Station Enabled
+23.06.22 10:33 AM >> Schedule successfully updated on device
+23.06.22 10:33 AM >> Wireless config request from device 44067 (204)[180222-NanoFix2RF9]
+23.06.22 10:33 AM >> User setting new schedule for device
+23.06.22 10:33 AM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   10:39:01 on 23/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+23.06.22 10:34 AM >> Schedule successfully updated on device
+23.06.22 10:35 AM >> Wireless config request from device 44496 (205)[180222-NanoFix2RF9]
+23.06.22 10:35 AM >> User setting new schedule for device
+23.06.22 10:35 AM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   10:40:32 on 23/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+23.06.22 10:35 AM >> Schedule successfully updated on device
+23.06.22 10:36 AM >> Wireless config request from device 44411 (205)[180222-NanoFix2RF9]
+23.06.22 10:36 AM >> User setting new schedule for device
+23.06.22 10:36 AM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   10:41:52 on 23/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+23.06.22 10:37 AM >> Schedule successfully updated on device
+23.06.22 10:37 AM >> Wireless config request from device 44458 (205)[180222-NanoFix2RF9]
+23.06.22 10:37 AM >> User setting new schedule for device
+23.06.22 10:37 AM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   15 minutes
+				 Tag start time -   10:42:41 on 23/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	30 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+23.06.22 10:37 AM >> Schedule successfully updated on device
+23.06.22 10:38 AM >> User requested cancellation of wireless config mode
+23.06.22 10:38 AM >> Exited wireless configuration mode.
+23.06.22 10:39 AM >> User setting new schedule for device
+23.06.22 10:39 AM >> Base station configuration cancelled by user
+23.06.22 10:42 AM >> User chose to disconnect from device. Final battery reading of 4.09V
+23.06.22 10:42 AM >> Connecting to device
+23.06.22 10:42 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+23.06.22 10:42 AM >> User chose not to update device schedule
+23.06.22 10:43 AM >> User chose to disconnect from device. Final battery reading of 4.07V
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+27.06.22 8:19 PM >> Software started (Version:2.35)
+27.06.22 8:19 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44505\Obs220622_161240_Tag44505.raw for processing
+27.06.22 8:19 PM >> File contains 1 observation sets for processing
+27.06.22 8:19 PM >> Downloading missing ephemeris files
+27.06.22 8:20 PM >> Ephemeris check complete
+27.06.22 8:20 PM >> Default time search window being used
+27.06.22 8:20 PM >> Checking start position
+27.06.22 8:20 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:20 PM >> Determining initial clock offset
+27.06.22 8:20 PM >> Using observations on line 1 to calculate initial time offset
+27.06.22 8:20 PM >> INFO: Ephemeris file brdc1730.22n contains 383 ephemerides
+27.06.22 8:20 PM >> Initial time offset calculated to be 5.6 s
+27.06.22 8:20 PM >> Applying offset and re-starting data processing from start of file
+27.06.22 8:20 PM >> Data processing complete
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+27.06.22 8:20 PM >> Software started (Version:2.35)
+27.06.22 8:20 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44505\Obs220622_161240_Tag44505.raw for processing
+27.06.22 8:20 PM >> File contains 1 observation sets for processing
+27.06.22 8:20 PM >> Downloading missing ephemeris files
+27.06.22 8:20 PM >> Ephemeris check complete
+27.06.22 8:20 PM >> Default time search window being used
+27.06.22 8:20 PM >> Checking start position
+27.06.22 8:20 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:21 PM >> Determining initial clock offset
+27.06.22 8:21 PM >> Using observations on line 1 to calculate initial time offset
+27.06.22 8:21 PM >> INFO: Ephemeris file brdc1730.22n contains 383 ephemerides
+27.06.22 8:21 PM >> Initial time offset calculated to be 5.6 s
+27.06.22 8:21 PM >> Applying offset and re-starting data processing from start of file
+27.06.22 8:21 PM >> Data processing complete
+27.06.22 8:21 PM >> User selected to delete previous processed data from session
+27.06.22 8:21 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44072\Obs220622_143125_Tag44072.raw for processing
+27.06.22 8:21 PM >> File contains 1 observation sets for processing
+27.06.22 8:21 PM >> Downloading missing ephemeris files
+27.06.22 8:21 PM >> Ephemeris check complete
+27.06.22 8:21 PM >> Default time search window being used
+27.06.22 8:21 PM >> Checking start position
+27.06.22 8:21 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:21 PM >> Determining initial clock offset
+27.06.22 8:21 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:21 PM >> Data processing aborted
+27.06.22 8:21 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44149\Obs230622_102607_Tag44149.raw for processing
+27.06.22 8:21 PM >> File contains 1 observation sets for processing
+27.06.22 8:21 PM >> Downloading missing ephemeris files
+27.06.22 8:21 PM >> Ephemeris check complete
+27.06.22 8:21 PM >> Default time search window being used
+27.06.22 8:21 PM >> Checking start position
+27.06.22 8:21 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:21 PM >> Determining initial clock offset
+27.06.22 8:21 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:21 PM >> Data processing aborted
+27.06.22 8:21 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44167\Obs230622_102607_Tag44167.raw for processing
+27.06.22 8:21 PM >> File contains 1 observation sets for processing
+27.06.22 8:21 PM >> Downloading missing ephemeris files
+27.06.22 8:21 PM >> Ephemeris check complete
+27.06.22 8:21 PM >> Default time search window being used
+27.06.22 8:21 PM >> Checking start position
+27.06.22 8:21 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:21 PM >> Determining initial clock offset
+27.06.22 8:21 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:21 PM >> Data processing aborted
+27.06.22 8:21 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44369\Obs230622_102607_Tag44369.raw for processing
+27.06.22 8:21 PM >> File contains 1 observation sets for processing
+27.06.22 8:21 PM >> Downloading missing ephemeris files
+27.06.22 8:22 PM >> Ephemeris check complete
+27.06.22 8:22 PM >> Default time search window being used
+27.06.22 8:22 PM >> Checking start position
+27.06.22 8:22 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:22 PM >> Determining initial clock offset
+27.06.22 8:22 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:22 PM >> Data processing aborted
+27.06.22 8:22 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44469\Obs230622_102607_Tag44469.raw for processing
+27.06.22 8:22 PM >> File contains 1 observation sets for processing
+27.06.22 8:22 PM >> Downloading missing ephemeris files
+27.06.22 8:22 PM >> Ephemeris check complete
+27.06.22 8:22 PM >> Default time search window being used
+27.06.22 8:22 PM >> Checking start position
+27.06.22 8:22 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:22 PM >> Determining initial clock offset
+27.06.22 8:22 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:22 PM >> Data processing aborted
+27.06.22 8:22 PM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44720\Obs230622_102607_Tag44720.raw for processing
+27.06.22 8:22 PM >> File contains 1 observation sets for processing
+27.06.22 8:22 PM >> Downloading missing ephemeris files
+27.06.22 8:22 PM >> Ephemeris check complete
+27.06.22 8:22 PM >> Default time search window being used
+27.06.22 8:22 PM >> Checking start position
+27.06.22 8:22 PM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+27.06.22 8:22 PM >> Determining initial clock offset
+27.06.22 8:22 PM >> ERROR: Couldn't determine initial clock offset - insufficient satellites tracked at clock offset 0.0s
+27.06.22 8:22 PM >> Data processing aborted
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+29.06.22 12:35 PM >> Software started (Version:2.35)
+29.06.22 12:35 PM >> Connecting to device
+29.06.22 12:35 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+29.06.22 12:37 PM >> User setting new schedule for device
+29.06.22 12:37 PM >> Base station configuration cancelled by user
+29.06.22 12:38 PM >> Lost contact with device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+29.06.22 12:38 PM >> Software started (Version:2.35)
+29.06.22 12:38 PM >> Connecting to device
+29.06.22 12:39 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+29.06.22 12:39 PM >> User setting new schedule for device
+29.06.22 12:39 PM >> Base Station Configuration Set : Base Station Enabled
+29.06.22 12:43 PM >> Schedule successfully updated on device
+29.06.22 12:45 PM >> Wireless config request from device 44422 (205)[180222-NanoFix2RF9]
+29.06.22 12:45 PM >> User setting new schedule for device
+29.06.22 12:45 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   5 minutes
+				 Tag start time -   12:55:08 on 29/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+29.06.22 12:46 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 12:46 PM >> User setting new schedule for device
+29.06.22 12:46 PM >> Wireless config request from device 44422 (205)[180222-NanoFix2RF9]
+29.06.22 12:46 PM >> User setting new schedule for device
+29.06.22 12:46 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   5 minutes
+				 Tag start time -   12:55:26 on 29/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+29.06.22 12:46 PM >> Schedule successfully updated on device
+29.06.22 12:46 PM >> Base station configuration cancelled by user
+29.06.22 12:47 PM >> Wireless config request from device 44372 (204)[180222-NanoFix2RF9]
+29.06.22 12:47 PM >> User setting new schedule for device
+29.06.22 12:47 PM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   5 minutes
+				 Tag start time -   12:55:34 on 29/06/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+29.06.22 12:47 PM >> Schedule successfully updated on device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+29.06.22 6:12 PM >> Software started (Version:2.35)
+29.06.22 6:12 PM >> Connecting to device
+29.06.22 6:12 PM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+29.06.22 6:12 PM >> Downloading data from device....
+29.06.22 6:12 PM >> 1361 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs290622_181228_BS50705.raw
+29.06.22 6:12 PM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs290622_181228_BS50705.raw into individual tag files
+29.06.22 6:12 PM >> Writing GPS data for tag ID 44505
+29.06.22 6:12 PM >> Writing GPS data for tag ID 44072
+29.06.22 6:12 PM >> Writing GPS data for tag ID 44422
+29.06.22 6:12 PM >> Writing GPS data for tag ID 44372
+29.06.22 6:12 PM >> User setting new schedule for device
+29.06.22 6:12 PM >> Base Station Configuration Set : Base Station Enabled
+29.06.22 6:13 PM >> Schedule successfully updated on device
+29.06.22 6:13 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:13 PM >> User setting new schedule for device
+29.06.22 6:13 PM >> NanoFix configuration cancelled by user
+29.06.22 6:14 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:14 PM >> User setting new schedule for device
+29.06.22 6:14 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:14 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 6:15 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:15 PM >> User setting new schedule for device
+29.06.22 6:15 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:15 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 6:15 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:15 PM >> User setting new schedule for device
+29.06.22 6:15 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:16 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 6:16 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:16 PM >> User setting new schedule for device
+29.06.22 6:16 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:16 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 6:17 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:17 PM >> User setting new schedule for device
+29.06.22 6:17 PM >> NanoFix configuration cancelled by user
+29.06.22 6:18 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:18 PM >> User setting new schedule for device
+29.06.22 6:18 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:18 PM >> ERROR: Timed out waiting for device to acknowledge new schedule
+29.06.22 6:19 PM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+29.06.22 6:19 PM >> User setting new schedule for device
+29.06.22 6:19 PM >> NanoFix Configuration Set : Tag Disabled
+29.06.22 6:19 PM >> Schedule successfully updated on device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+30.06.22 8:40 AM >> Software started (Version:2.35)
+30.06.22 8:40 AM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44505\Obs220622_150328_Tag44505.raw for processing
+30.06.22 8:40 AM >> File contains 1 observation sets for processing
+30.06.22 8:40 AM >> Downloading missing ephemeris files
+30.06.22 8:41 AM >> Ephemeris check complete
+30.06.22 8:41 AM >> Default time search window being used
+30.06.22 8:41 AM >> Checking start position
+30.06.22 8:41 AM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+30.06.22 8:41 AM >> Determining initial clock offset
+30.06.22 8:41 AM >> Using observations on line 1 to calculate initial time offset
+30.06.22 8:41 AM >> INFO: Ephemeris file brdc1730.22n contains 383 ephemerides
+30.06.22 8:41 AM >> Initial time offset calculated to be 5.4 s
+30.06.22 8:41 AM >> Applying offset and re-starting data processing from start of file
+30.06.22 8:41 AM >> Data processing complete
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+30.06.22 11:57 AM >> Software started (Version:2.35)
+30.06.22 11:57 AM >> Opening file C:\Users\conve\AppData\Local\Pathtrack\archival_usb\log files\Tag44072\Obs290622_181228_Tag44072.raw for processing
+30.06.22 11:57 AM >> File contains 659 observation sets for processing
+30.06.22 11:57 AM >> Downloading missing ephemeris files
+30.06.22 11:59 AM >> Ephemeris check complete
+30.06.22 11:59 AM >> Default time search window being used
+30.06.22 11:59 AM >> Checking start position
+30.06.22 11:59 AM >> Proceeding with current start position (Lat:48.128148 Lon:-122.920283 Hgt:2.0m)
+30.06.22 11:59 AM >> Determining initial clock offset
+30.06.22 11:59 AM >> Using observations on line 1 to calculate initial time offset
+30.06.22 11:59 AM >> INFO: Ephemeris file brdc1730.22n contains 383 ephemerides
+30.06.22 11:59 AM >> Initial time offset calculated to be 112.1 s
+30.06.22 11:59 AM >> Applying offset and re-starting data processing from start of file
+30.06.22 12:00 PM >> INFO: Ephemeris file brdc1740.22n contains 388 ephemerides
+30.06.22 12:02 PM >> INFO: Ephemeris file brdc1750.22n contains 385 ephemerides
+30.06.22 12:04 PM >> INFO: Ephemeris file brdc1760.22n contains 387 ephemerides
+30.06.22 12:06 PM >> INFO: Ephemeris file brdc1770.22n contains 386 ephemerides
+30.06.22 12:08 PM >> INFO: Ephemeris file brdc1780.22n contains 388 ephemerides
+30.06.22 12:10 PM >> INFO: Ephemeris file brdc1790.22n contains 385 ephemerides
+30.06.22 12:12 PM >> INFO: Ephemeris file brdc1800.22n contains 385 ephemerides
+30.06.22 12:14 PM >> Data processing complete
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 10:53 AM >> Software started (Version:2.35)
+07.07.22 10:53 AM >> Connecting to device
+07.07.22 10:53 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+07.07.22 10:53 AM >> Downloading data from device....
+07.07.22 10:54 AM >> 1617 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs070722_105346_BS50705.raw
+07.07.22 10:54 AM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs070722_105346_BS50705.raw into individual tag files
+07.07.22 10:54 AM >> Writing GPS data for tag ID 44505
+07.07.22 10:54 AM >> Writing GPS data for tag ID 44149
+07.07.22 10:54 AM >> Writing GPS data for tag ID 44372
+07.07.22 10:54 AM >> Writing GPS data for tag ID 44067
+07.07.22 10:54 AM >> User setting new schedule for device
+07.07.22 10:54 AM >> Base Station Configuration Set : Base Station Enabled
+07.07.22 10:55 AM >> Schedule successfully updated on device
+07.07.22 10:55 AM >> Wireless config request from device 44422 (200)[180222-NanoFix2RF9]
+07.07.22 10:55 AM >> User setting new schedule for device
+07.07.22 10:55 AM >> NanoFix Configuration Set : Tag Enabled with following configuration
+				 GPS Interval  -   5 minutes
+				 Tag start time -   10:59:28 on 07/07/2022 (PC time zone)
+				 GPS mode      -   Fixed interval
+				 GPS active from 00:00:00 to 24:00:00 each day (PC time zone)
+				 UHF Data Download : 	5 minutes
+				 Valid Base Stations for Data Downloading : 	BS50705
+07.07.22 10:56 AM >> Schedule successfully updated on device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 10:57 AM >> Software started (Version:2.35)
+07.07.22 10:58 AM >> Connecting to device
+07.07.22 10:58 AM >> ERROR: Could not connect to device
+07.07.22 10:58 AM >> Connecting to device
+07.07.22 10:58 AM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 10:59 AM >> Software started (Version:2.35)
+07.07.22 10:59 AM >> Connecting to device
+07.07.22 10:59 AM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 11:03 AM >> Software started (Version:2.35)
+07.07.22 11:04 AM >> Connecting to device
+07.07.22 11:04 AM >> ERROR: Could not connect to device
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 11:04 AM >> Software started (Version:2.35)
+07.07.22 11:05 AM >> Connecting to device
+07.07.22 11:05 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+07.07.22 11:05 AM >> Downloading data from device....
+07.07.22 11:05 AM >> 1 GPS observables stored to raw observable file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs070722_110554_BS50705.raw
+07.07.22 11:05 AM >> Splitting observable data file C:\Users\conve\AppData\Local\pathtrack\archival_usb\log files\BS50705\Obs070722_110554_BS50705.raw into individual tag files
+07.07.22 11:05 AM >> Writing GPS data for tag ID 44422
+07.07.22 11:06 AM >> User setting new schedule for device
+07.07.22 11:06 AM >> Base station configuration cancelled by user
+07.07.22 11:06 AM >> User chose to disconnect from device. Final battery reading of 4.05V
+
+
+*********************************************************************************************
+
+*********************************************************************************************
+07.07.22 11:07 AM >> Software started (Version:2.35)
+07.07.22 11:07 AM >> Connecting to device
+07.07.22 11:08 AM >> Successfully connected to device#50705 (F/W Ver.:230620-UHBnF-915D) on Port COM3
+07.07.22 11:08 AM >> User chose not to update device schedule
+
+
