@@ -1,10 +1,19 @@
 library(here)
-data.22 <- read.csv(here("data", "22_tags_processed_3.10", "Obs070722_105346_Tag44067.csv"))
+library(dplyr)
+
+# Get the list of files in the directory
+file_list <- list.files(path = here("data", "22_tags_processed_3.10", "CSV"))
+
+# Initialize an empty list to store data frames
+dfs <- list()
+
+# Loop through each file and read it, skipping the first 5 lines
+for (file in file_list) {
+  df <- read.csv(file.path(here("data", "22_tags_processed_3.10", "CSV"), file), header = FALSE, skip = 5)
+  names(df) <- NULL  #remove column names
+  dfs[[file]] <- df
+}
 
 
-test <- do.call(rbind, lapply(list.files(path = here("data", "22_tags_processed_3.10"), pattern = '\\.csv'), read.csv))
 
 
-myMergedData <- do.call(rbind, lapply(list.files(path = "N:/Ring data by cruise"), read.csv))
-          
-          
