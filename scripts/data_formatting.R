@@ -5,7 +5,9 @@ library(rgdal)
 library(here)
 library(dplyr)
 
+# Create a function that produces two items: PIGU_data and RHAU_data
 loc.data.fxn <- function(){
+  
 ############################
 ### PIGU data formatting ###
 ############################
