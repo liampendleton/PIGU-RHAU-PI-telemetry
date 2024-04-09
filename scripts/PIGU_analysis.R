@@ -52,11 +52,8 @@ bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 # Split PIGU_data by ID
 grouped_data <- split(PIGU_data, PIGU_data$ID)
 
-# Loop through each group and plot the corresponding raster and points
-par(mfrow = c(ceiling(length(unique(PIGU_data$ID)) / 2), 2))
-
 for (id in names(grouped_data)) {
-  plot(bathy_crop)
+  plot(bathy_crop, asp = 1)
   points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
   title(paste("Individual ID:", id))
 }
