@@ -23,13 +23,13 @@ library(gridExtra)
 source(here("Scripts", "supportingScripts/utility.R"))
 
 ### DATA FORMATTING
-## PIGU DATA
-# load PIGU data
-PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
+## RHAU DATA
+# load RHAU data
+RHAU_data <- read.csv(here("data", "RHAU_data", "RHAU_data.csv"))
 
 # create time of day covariate
-PIGU_data$date_time <- as.POSIXct(PIGU_data$time,tz="UTC")
-PIGU_data$tod <- as.numeric(format(PIGU_data$date_time, "%H")) + as.numeric(format(PIGU_data$date_time, "%M"))/60
+RHAU_data$date_time <- as.POSIXct(RHAU_data$time,tz="UTC")
+RHAU_data$tod <- as.numeric(format(RHAU_data$date_time, "%H")) + as.numeric(format(RHAU_data$date_time, "%M"))/60
 
 ## COVARIATE DATA
 # load in bathymetry data
@@ -46,25 +46,18 @@ raster_bathy <- flip(raster_bathy, "y") #flip to proper orientation
 
 utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define UTM projection string
 raster_bathy_utm <- projectRaster(raster_bathy, crs = utm_proj) #project to UTM
-crop <- extent(c(xmin = 475, xmax = 525, ymin = 5300, ymax = 5350)) #set up layer crop
+crop <- extent(c(xmin = 400, xmax = 600, ymin = 5225, ymax = 5400)) #set up layer crop
 bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
-# Split PIGU_data by ID
-grouped_data <- split(PIGU_data, PIGU_data$ID)
+# Split RHAU_data by ID
+grouped_data <- split(RHAU_data, RHAU_data$ID)
 
-# Loop through each group and plot the corresponding raster and points
-par(mfrow = c(ceiling(length(unique(PIGU_data$ID)) / 2), 2))
-
+# Plot it!
 for (id in names(grouped_data)) {
-  plot(bathy_crop)
+  plot(bathy_crop, xlim = c(400, 600), asp = 1)
   points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
   title(paste("Individual ID:", id))
 }
 
-
-
-
 # Close the NetCDF file
 nc_close(bathydata)
-
-

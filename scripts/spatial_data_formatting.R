@@ -1,10 +1,9 @@
 install.packages("sp")
-install.packages("rgdal")
 library(sp)
-library(rgdal)
 library(here)
 library(dplyr)
-
+library(gridExtra)
+library(ggplot2)
 
 ############################
 ### PIGU data formatting ###
@@ -27,6 +26,19 @@ for (i in seq_along(file_list)) {
 PIGU_data <- bind_rows(dfs)
 colnames(PIGU_data) <- c("DAY", "MONTH", "YEAR", "HOUR", "MINUTE", "SECOND", "SoD", "#SAT", "LAT", "LONG", "ALT", "CLOCK_OFFSET", "ACCURACY", "BATTERY", "NA1", "NA2", "ID")
 
+# Remove outliers based on max foraging distance during breeding
+rm_outlier <- function(df, lat_thresh, long_thresh, dist_thresh) {
+  df %>%
+    mutate(distance_from_threshold = distVincentyEllipsoid(cbind(LONG, LAT), c(long_thresh, lat_thresh))) %>%
+    filter(distance_from_threshold <= dist_thresh)
+}
+
+lat_thresh <- 48.124637
+long_thresh <- -122.927884
+dist_thresh <- 7000 #meters; Birds of the World
+
+PIGU_data <- rm_outlier(PIGU_data, lat_thresh, long_thresh, dist_thresh)
+
 # Project lat/long as UTM
 utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
 
@@ -42,7 +54,7 @@ PIGU_data_datetime <- lapply(PIGU_data[,1:6], as.character) #convert date/time c
 
 datetime_string <- with(PIGU_data_datetime, sprintf("%s-%s-%s %s:%s:%s", YEAR, MONTH, DAY, HOUR, MINUTE, SECOND))
 
-# Finalize PIGU data
+# Finalize PIGU data format
 PIGU_data <- data.frame(
   ID = PIGU_data[,17],  
   x = PIGU_data_utm@coords[,1],  
@@ -52,6 +64,7 @@ PIGU_data <- data.frame(
 
 cat(paste0('"', paste(colnames(PIGU_data), collapse = '","'), '"'), file = here("data", "PIGU_data", "PIGU_data.csv"), sep = '\n')
 write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
+
 ############################
 ### RHAU data formatting ###
 ############################
@@ -72,6 +85,22 @@ for (i in seq_along(file_list)) {
 # Combine all data frames into a single data frame
 RHAU_data <- bind_rows(dfs)
 colnames(RHAU_data) <- c("DAY", "MONTH", "YEAR", "HOUR", "MINUTE", "SECOND", "SoD", "#SAT", "LAT", "LONG", "ALT", "CLOCK_OFFSET", "ACCURACY", "BATTERY", "NA1", "NA2", "ID")
+
+# Remove outliers based on max foraging distance during breeding
+rm_outlier <- function(df, lat_thresh, long_thresh, dist_thresh) {
+  df %>%
+    mutate(distance_from_threshold = distVincentyEllipsoid(cbind(LONG, LAT), c(long_thresh, lat_thresh))) %>%
+    filter(distance_from_threshold <= dist_thresh)
+}
+
+lat_thresh <- 48.124637
+long_thresh <- -122.927884
+dist_thresh <- 50000 #meters; Bird of the World
+
+RHAU_data <- rm_outlier(RHAU_data, lat_thresh, long_thresh, dist_thresh)
+
+# Project lat/long as UTM
+utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
 
 # Convert columns 9 and 10 to spatial points data frame
 RHAU_data_sp <- SpatialPointsDataFrame(coords = RHAU_data[, c(10, 9)],
@@ -95,4 +124,3 @@ RHAU_data <- data.frame(
 
 cat(paste0('"', paste(colnames(RHAU_data), collapse = '","'), '"'), file = here("data", "RHAU_data", "RHAU_data.csv"), sep = '\n')
 write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
-
