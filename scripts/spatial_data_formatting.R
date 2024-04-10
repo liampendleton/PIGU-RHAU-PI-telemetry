@@ -14,7 +14,7 @@ dfs <- list() #create empty list to store each data frame
 
 ids <- c(44067, 45657, 45658, 44072, 44372, 44505) #list of PIGU tag IDs
 
-# Loop through each file and read it, skipping the first 5 lines of data frame title
+# Loop through each file and read it, skipping the first 5 lines of data frame title; reformat a bit
 for (i in seq_along(file_list)) {
   df <- read.csv(file.path(here("data", "PIGU_data", "PIGU_tags", "Processed_data", "CSV"), file_list[i]), header = FALSE, skip = 5) #read in each CSV
   df <- mutate(df, ID = ids[i]) #add IDs to each data frame
