@@ -62,9 +62,10 @@ PIGU_data <- data.frame(
   time = datetime_string
 )
 
+PIGU_data$time <- sub("^", "20", PIGU_data$time)
+
 cat(paste0('"', paste(colnames(PIGU_data), collapse = '","'), '"'), file = here("data", "PIGU_data", "PIGU_data.csv"), sep = '\n')
 write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
-
 ############################
 ### RHAU data formatting ###
 ############################
@@ -121,6 +122,8 @@ RHAU_data <- data.frame(
   y = RHAU_data_utm@coords[,2],  
   time = datetime_string
 )
+
+RHAU_data$time <- sub("^", "20", RHAU_data$time)
 
 cat(paste0('"', paste(colnames(RHAU_data), collapse = '","'), '"'), file = here("data", "RHAU_data", "RHAU_data.csv"), sep = '\n')
 write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
