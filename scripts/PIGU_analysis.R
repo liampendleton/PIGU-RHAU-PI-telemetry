@@ -76,8 +76,11 @@ tracks <- prepData(data = PIGU_data,
 
 # Multiple imputation to address temporal irregularity
 # fit crawl model
-crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "hour",
-                    theta=c(6.855, -0.007), fixPar=c(NA,NA))
+crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
+                    theta=c(6.855, -0.007), fixPar=c(NA,NA)) #IDK WHAT TO DO HERE
+
+dist <- list(mu="rw_mvnorm2")
+
 
 
 
