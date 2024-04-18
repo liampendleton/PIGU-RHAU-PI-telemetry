@@ -52,7 +52,7 @@ crop <- extent(c(xmin = 475, xmax = 525, ymin = 5300, ymax = 5350)) #set up laye
 bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
 # Plotting tracks on top of bathymetry data; just for visualization
-# # Split PIGU_data by ID
+# Split PIGU_data by ID
 # grouped_data <- split(PIGU_data, PIGU_data$ID)
 # 
 # # Plot it!
@@ -74,12 +74,26 @@ tracks <- prepData(data = PIGU_data,
                    covNames = "tod",
                    spatialCovs = covlist) #if raster stack, must have z values (time, date, etc.)
 
-# Multiple imputation to address temporal irregularity
-# fit crawl model
-crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
-                    theta=c(6.855, -0.007), fixPar=c(NA,NA)) #IDK WHAT TO DO HERE
+# create a test track
+# track_44067 <- tracks[tracks$ID == 44067,]
+
+# # Multiple imputation to address temporal irregularity
+# # fit crawl model
+# crwOut <- crawlWrap(obsData = track_44067, 
+#                     timeStep = seq(head(track_44067, 1), (tail(track_44067, 1)), "15 mins"), #Does this need to be looped through unique individuals in "tracks"?
+#                     theta=c(6.855, -0.007), fixPar=c(NA,NA)) #IDK WHAT TO DO HERE
+# IGNORE FOR NOW
 
 dist <- list(mu="rw_mvnorm2")
+
+# specify model
+DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
+                   mean.y=~0+mu.y_tm1+crw(mu.y_tm1)+langevin(bathy.y),
+                   sd.x=~1,
+                   sd.y=~1,
+                   corr.xy=~1))
+
+
 
 
 
