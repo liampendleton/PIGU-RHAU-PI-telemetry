@@ -31,6 +31,9 @@ PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
 PIGU_data$date_time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 PIGU_data$tod <- as.numeric(format(PIGU_data$date_time, "%H")) + as.numeric(format(PIGU_data$date_time, "%M"))/60
 
+PIGU_data_new <- PIGU_data
+
+
 ## COVARIATE DATA
 # load in bathymetry data
 bathydata <- nc_open(here("data", "gebco_2023_n48.8518_s47.1651_w-124.837_e-122.1564.nc")) #obtained from NOAA's ETOPO 2022 Grid Extract on 4/8/2024
@@ -69,11 +72,14 @@ for (id in names(grouped_data)) {
 bird.list <- unique(PIGU_data$ID)
 
 for (i in 1:length(bird.list)) {
-  bird.data <- PIGU_data[which(PIGU_data$ID == bird.list),]
-  diff <- bird.data$date_time[2:length(bird.data)] - bird.data$date_time[1:(length(bird.data) - 1)]
+  bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),]
+  bird.data <- bird.data[order(bird.data$date_time),]
+  diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)]
+  which(diff>35)
+  
 }
 
-
+bird.data <- bird.data[order(bird.data$date_time),]
 
 # Plot points against time to identify gaps
 plot(x = track_44067$date_time, 
