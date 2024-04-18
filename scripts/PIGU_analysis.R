@@ -53,14 +53,32 @@ bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
 # Plotting tracks on top of bathymetry data; just for visualization
 # Split PIGU_data by ID
-# grouped_data <- split(PIGU_data, PIGU_data$ID)
-# 
-# # Plot it!
-# for (id in names(grouped_data)) {
-#   plot(bathy_crop, asp = 1)
-#   points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
-#   title(paste("Individual ID:", id))
-# }
+grouped_data <- split(PIGU_data, PIGU_data$ID)
+
+# Plot it!
+for (id in names(grouped_data)) {
+  plot(bathy_crop, asp = 1)
+  points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
+  title(paste("Individual ID:", id))
+}
+
+#################################
+# create a test track
+track_44067 <- tracks[tracks$ID == 44067,]
+
+
+
+# Plot points against time to identify gaps
+plot(x = track_44067$date_time, 
+     y = rep(1,nrow(track_44067)))
+  
+
+
+
+
+
+
+
 
 # Close the NetCDF file
 nc_close(bathydata)
@@ -72,7 +90,21 @@ tracks <- prepData(data = PIGU_data,
                    type = "UTM",
                    coordNames = c("x", "y"),
                    covNames = "tod",
-                   spatialCovs = covlist) #if raster stack, must have z values (time, date, etc.)
+                   spatialCovs = covlist,
+                   gradient = TRUE,
+                   altCoordNames="mu") #if raster stack, must have z values (time, date, etc.)
+
+
+
+nbStates <- 2
+dist <- list(mu="rw_mvnorm2")
+formula <- ~cosinor(tod,period=24)
+stateNames <- c("encamped","exploratory")
+stateCols <- c("#56B4E9","#E69F00")
+
+
+
+
 
 # create a test track
 # track_44067 <- tracks[tracks$ID == 44067,]
@@ -85,6 +117,15 @@ tracks <- prepData(data = PIGU_data,
 # IGNORE FOR NOW
 
 dist <- list(mu="rw_mvnorm2")
+
+
+
+
+
+
+
+
+
 
 # specify model
 DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
