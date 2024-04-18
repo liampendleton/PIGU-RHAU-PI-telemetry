@@ -64,7 +64,14 @@ for (id in names(grouped_data)) {
 
 #################################
 # create a test track
-track_44067 <- tracks[tracks$ID == 44067,]
+# track_44067 <- tracks[tracks$ID == 44067,]
+
+bird.list <- unique(PIGU_data$ID)
+
+for (i in 1:length(bird.list)) {
+  bird.data <- PIGU_data[which(PIGU_data$ID == bird.list),]
+  diff <- bird.data$date_time[2:length(bird.data)] - bird.data$date_time[1:(length(bird.data) - 1)]
+}
 
 
 
