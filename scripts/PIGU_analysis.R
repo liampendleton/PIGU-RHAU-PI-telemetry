@@ -70,15 +70,18 @@ for (id in names(grouped_data)) {
 
 bird.list <- unique(PIGU_data$ID)
 
-for (i in 1:length(bird.list)) {
-  bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),]
-  bird.data <- bird.data[order(bird.data$date_time),]
-  diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)]
-  which(diff>35)
-  
-}
-
+#pull out relevant data for one bird 
+i <- 6
+bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),]
 bird.data <- bird.data[order(bird.data$date_time),]
+#calculate the difference in time for consecutive locations 
+diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)]
+sort(diff)
+#now look at those where it missed 1 or more locations
+#we determine the cutoffs to look at 
+which(diff>35)
+#map the major gaps - where did they occur? 
+
 
 
 
