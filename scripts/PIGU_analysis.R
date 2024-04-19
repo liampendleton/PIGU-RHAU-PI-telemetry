@@ -31,7 +31,6 @@ PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
 PIGU_data$date_time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 PIGU_data$tod <- as.numeric(format(PIGU_data$date_time, "%H")) + as.numeric(format(PIGU_data$date_time, "%M"))/60
 
-PIGU_data_new <- PIGU_data
 
 
 ## COVARIATE DATA
@@ -80,6 +79,25 @@ for (i in 1:length(bird.list)) {
 }
 
 bird.data <- bird.data[order(bird.data$date_time),]
+
+
+
+test1 <- bird.data[948:949,]
+
+
+plot(bathy_crop, asp = 1)
+points(test1$x, test1$y, col = "red", pch = 20, cex = 2)
+
+# Plot it!
+for (id in names(grouped_data)) {
+  plot(bathy_crop, asp = 1)
+  points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
+  title(paste("Individual ID:", id))
+}
+
+
+
+
 
 # Plot points against time to identify gaps
 plot(x = track_44067$date_time, 
