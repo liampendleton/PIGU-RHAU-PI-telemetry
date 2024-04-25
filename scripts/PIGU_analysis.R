@@ -28,7 +28,7 @@ source(here("Scripts", "supportingScripts/utility.R"))
 PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
 
 # Create "distance to nest" covariate
-utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
+utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define PROJ string
 PIGU_origin <- st_as_sf(PIGU_data, coords = c("x", "y"), crs=32610) #EPSG:32610 for WGS84 10M
 PIGU_dest <- st_as_sf(PIGU_data, coords = c("nest_x", "nest_y"), crs=32610)
 PIGU_data$dist2nest <- st_distance(PIGU_origin, PIGU_dest,  by_element = TRUE)
