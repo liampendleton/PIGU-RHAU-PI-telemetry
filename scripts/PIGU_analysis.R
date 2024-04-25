@@ -19,19 +19,23 @@ if(!requireNamespace("momentuHMM",quietly=TRUE) || packageVersion("momentuHMM")<
 library(momentuHMM)
 library(ncdf4)
 library(gridExtra)
+library(sf)
 
 source(here("Scripts", "supportingScripts/utility.R"))
 
-### DATA FORMATTING
 ## PIGU DATA
 # load PIGU data
 PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
 
-# create time of day covariate
+# Create "distance to nest" covariate
+utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
+PIGU_origin <- st_as_sf(PIGU_data, coords = c("x", "y"), crs=32610) #EPSG:32610 for WGS84 10M
+PIGU_dest <- st_as_sf(PIGU_data, coords = c("nest_x", "nest_y"), crs=32610)
+PIGU_data$dist2nest <- st_distance(PIGU_origin, PIGU_dest,  by_element = TRUE)
+
+# Create time of day covariate
 PIGU_data$date_time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 PIGU_data$tod <- as.numeric(format(PIGU_data$date_time, "%H")) + as.numeric(format(PIGU_data$date_time, "%M"))/60
-
-
 
 ## COVARIATE DATA
 # load in bathymetry data
@@ -53,34 +57,46 @@ raster_bathy_utm <- projectRaster(raster_bathy, crs = utm_proj) #project to UTM
 crop <- extent(c(xmin = 475, xmax = 525, ymin = 5300, ymax = 5350)) #set up layer crop
 bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
-# Plotting tracks on top of bathymetry data; just for visualization
-# Split PIGU_data by ID
-grouped_data <- split(PIGU_data, PIGU_data$ID)
-
-# Plot it!
-for (id in names(grouped_data)) {
-  plot(bathy_crop, asp = 1)
-  points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
-  title(paste("Individual ID:", id))
-}
+# # Plotting tracks on top of bathymetry data; just for visualization
+# # Split PIGU_data by ID
+# grouped_data <- split(PIGU_data, PIGU_data$ID)
+# 
+# # Plot it!
+# for (id in names(grouped_data)) {
+#   plot(bathy_crop, asp = 1)
+#   points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
+#   title(paste("Individual ID:", id))
+# }
 
 #################################
-# create a test track
-# track_44067 <- tracks[tracks$ID == 44067,]
+state <- st_read(here("data", "states", "cb_2018_us_state_500k.shp")) #for some reason I had to use this read command. there is another, read_sf() that you may need to use in different cases 
+wa <- state[state$NAME == "Washington", ] #filter to obtain WA state
+
+
+
+
 
 bird.list <- unique(PIGU_data$ID)
 
-#pull out relevant data for one bird 
+# Pull out relevant data for one bird 
 i <- 6
-bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),]
-bird.data <- bird.data[order(bird.data$date_time),]
-#calculate the difference in time for consecutive locations 
-diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)]
+bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),] #i ID
+bird.data <- bird.data[order(bird.data$date_time),] #order by datetime
+diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)] #get differences between all consecutive points
 sort(diff)
-#now look at those where it missed 1 or more locations
-#we determine the cutoffs to look at 
-which(diff>35)
-#map the major gaps - where did they occur? 
+indices <- which(diff>35) #use diff thresholds
+#map the major gaps - where did they occur?
+
+
+for (i in indices) {
+  if (i < nrow(bird.data)) {  #ensure we don't go out of bounds
+    rows <- c(i, i + 1)  #get current index and the next one
+    gaps <- bird.data[rows, ]  #extract rows
+    ggplot() +
+      geom
+  }
+}
+
 
 
 
