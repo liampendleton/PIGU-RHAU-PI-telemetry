@@ -183,4 +183,4 @@ RHAU_data <- RHAU_nest_data %>%
   group_by(ID)
 
 # Save the data!
-write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
+write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)

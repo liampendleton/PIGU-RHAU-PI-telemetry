@@ -185,4 +185,4 @@ PIGU_data <- PIGU_nest_data %>%
   group_by(ID)
 
 # Save the data!
-write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = FALSE, row.names = FALSE, sep = ",", quote = FALSE, append = TRUE)
+write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
