@@ -15,6 +15,11 @@ file_list <- list.files(path = here("data", "RHAU_data", "RHAU_tags", "Processed
 dfs <- list() #create empty list to store each data frame
 
 ids <- c(45653, 45659, 45701, 44149, 45663, 45672, 45695) #list of RHAU tag IDs
+nest_x <- as.numeric(rep(48.127757, length(ids)))
+nest_y <- as.numeric(rep(-122.922553, length(ids))) 
+nest_locs <- data.frame(ID = ids,
+                        nest_x = nest_x, 
+                        nest_y = nest_y)
 
 # Loop through each file and read it, skipping the first 5 lines of data frame title
 for (i in seq_along(file_list)) {
@@ -133,7 +138,6 @@ for (bird_id in unique(RHAU_data$ID)) {
 
 merged_data <- rbind(RHAU_data, interp_data) #append data
 
-
 ###############################
 ### PROJECT LOC DATA TO UTM ###
 ###############################
@@ -145,7 +149,21 @@ RHAU_data_sp <- SpatialPointsDataFrame(coords = merged_data[, c(3, 2)],
                                        data = merged_data,
                                        proj4string = CRS("+proj=longlat +datum=WGS84"))
 
+nest_data_sp <- SpatialPointsDataFrame(coords = nest_locs[, c(3, 2)],
+                                       data = nest_locs,
+                                       proj4string = CRS("+proj=longlat +datum=WGS84"))
+
 RHAU_data_utm <- spTransform(RHAU_data_sp, CRS(utm_proj)) #transform the coordinates to UTM zone 10N; around Protection Island
+nest_data_utm <- spTransform(nest_data_sp, CRS(utm_proj)) #same thing
+
+# Make nest_data UTM dataframe 
+nest_data <- data.frame(
+  ID <- nest_locs[,1],
+  nest_x = nest_data_utm@coords[,1],
+  nest_y = nest_data_utm@coords[,2]
+)
+
+colnames(nest_data) <- c("ID", "nest_x", "nest_y")
 
 # Finalize RHAU dataframe design
 RHAU_data <- data.frame(
@@ -157,8 +175,10 @@ RHAU_data <- data.frame(
 
 RHAU_data$time <- RHAU_data$time + years(2000) #fix 
 
+RHAU_nest_data <- merge(RHAU_data, nest_data, by = "ID", all.x = TRUE)
+
 # Let's reorganize data
-RHAU_data <- RHAU_data %>%
+RHAU_data <- RHAU_nest_data %>%
   arrange(ID, time) %>%
   group_by(ID)
 

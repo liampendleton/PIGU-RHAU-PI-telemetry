@@ -15,6 +15,13 @@ file_list <- list.files(path = here("data", "PIGU_data", "PIGU_tags", "Processed
 dfs <- list() #create empty list to store each data frame
 
 ids <- c(44067, 45657, 45658, 44072, 44372, 44505) #list of PIGU tag IDs
+nest_ID <- c("MAR_3", "MAR_11", "MS_14", "MAR_2",  "MAR_10", "MAR_1")
+nest_x <- as.numeric(c(48.127846, 48.12736, 48.124139, 48.127946, 48.127453, 48.128024))
+nest_y <- as.numeric(c(-122.920373, -122.920626, -122.927807, -122.920335, -122.920551, -122.920301)) 
+nest_locs <- data.frame(ID = ids,
+                        nest_ID = nest_ID,
+                        nest_x = nest_x, 
+                        nest_y = nest_y)
 
 # Loop through each file and read it, skipping the first 5 lines of data frame title
 for (i in seq_along(file_list)) {
@@ -133,7 +140,6 @@ for (bird_id in unique(PIGU_data$ID)) {
 
 merged_data <- rbind(PIGU_data, interp_data) #append data
 
-
 ###############################
 ### PROJECT LOC DATA TO UTM ###
 ###############################
@@ -145,7 +151,21 @@ PIGU_data_sp <- SpatialPointsDataFrame(coords = merged_data[, c(3, 2)],
                                        data = merged_data,
                                        proj4string = CRS("+proj=longlat +datum=WGS84"))
 
+nest_data_sp <- SpatialPointsDataFrame(coords = nest_locs[, c(4, 3)],
+                                       data = nest_locs,
+                                       proj4string = CRS("+proj=longlat +datum=WGS84"))
+
 PIGU_data_utm <- spTransform(PIGU_data_sp, CRS(utm_proj)) #transform the coordinates to UTM zone 10N; around Protection Island
+nest_data_utm <- spTransform(nest_data_sp, CRS(utm_proj)) #same thing
+
+# Make nest_data UTM dataframe 
+nest_data <- data.frame(
+  ID <- nest_locs[,1],
+  nest_x = nest_data_utm@coords[,1],
+  nest_y = nest_data_utm@coords[,2]
+)
+
+colnames(nest_data) <- c("ID", "nest_x", "nest_y")
 
 # Finalize PIGU dataframe design
 PIGU_data <- data.frame(
@@ -157,8 +177,10 @@ PIGU_data <- data.frame(
 
 PIGU_data$time <- PIGU_data$time + years(2000) #fix 
 
+PIGU_nest_data <- merge(PIGU_data, nest_data, by = "ID", all.x = TRUE)
+
 # Let's reorganize data
-PIGU_data <- PIGU_data %>%
+PIGU_data <- PIGU_nest_data %>%
   arrange(ID, time) %>%
   group_by(ID)
 
