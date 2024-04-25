@@ -49,6 +49,8 @@ PIGU_data <- data.frame(
   time = as.POSIXct(datetime_string, format = "%Y-%m-%d %H:%M:%S"
 ))
 ##################################################
+# Make maps for each individual's gaps at 35, 50, and 65 minute thresholds. Report the timestamp of the gap and show the points associate with it
+
 bird.list <- unique(PIGU_data$ID)
 
 # Iterate over each unique bird ID
@@ -115,3 +117,69 @@ for (i in 1:length(bird.list)) {
     }
   }
 }
+
+##################################################
+# Define a function to interpolate points between two given points
+
+interpolate_points <- function(gap_start, gap_end, num_points) {
+  delta_x <- (gap_end$x - gap_start$x) / (num_points + 1)  #change in x-coord per interpolated point
+  delta_y <- (gap_end$y - gap_start$y) / (num_points + 1)  #change in y-coord per interpolated point
+  
+  interp_points <- list() #to store interpolated points
+  
+  # Generate interpolated points
+  for (i in 1:num_points) {  
+    interpolated_x <- gap_start$x + i * delta_x  #calc x-coord of interpolated point
+    interpolated_y <- gap_start$y + i * delta_y  #calc y-coord of interpolated point
+    interpolated_time <- gap_start$time + as.difftime(i * 15, units = "mins")  #calc timestamp of interpolated point
+    
+    # Structure like PIGU/RHAU datasets!
+    interp_points[[i + 1]] <- data.frame(  #use i + 1 as index to start from 1
+      ID = gap_start$ID,
+      x = interpolated_x,
+      y = interpolated_y,
+      time = interpolated_time
+    )
+  }
+  return(interp_points)
+}
+
+
+#format dataframe like original dataset
+interp_data <- PIGU_data[0,]
+interp_data$x <- numeric()
+interp_data$y <- numeric()
+interp_data$time <- as.POSIXct(character(), format = "%Y-%m-%d %H:%M:%S")
+
+
+# Set up data
+for (bird_id in unique(PIGU_data$ID)) {  
+  bird_data <- PIGU_data[PIGU_data$ID == bird_id,]  #start with unique ID
+  bird_data <- bird_data[order(bird_data$ID, bird_data$time),]  #order by ID and timestamp
+  
+  for (i in 1:(nrow(bird_data) - 1)) {  #iterate over each pair of consecutive points
+    time_diff <- difftime(bird_data$time[i + 1], bird_data$time[i], units = "mins")  #time diff between points
+    
+    if (time_diff > 19) {  #19 seems like the sweet spot, since not every point was collected at EXACTLY 15 min intervals
+      num_point_insert <- as.integer(time_diff / 15) - 1  #calc number of points to interpolate
+      
+      # Use the function!
+      interp_points <- interpolate_points(
+        gap_start = bird_data[i,],
+        gap_end = bird_data[i + 1,],
+        num_points = num_point_insert)
+      
+      for (j in 1:length(interp_points)) {
+        interp_data <- rbind(interp_data, interp_points[[j]])  #add interpolated points to dataframe
+      }
+    }
+  }
+}
+
+interp_data <- interp_data[order(interp_data$ID, interp_data$time),]  #order data by ID and timestamp
+merged_data <- rbind(PIGU_data, interp_data) #append data
+
+# Group by ID and sort by time
+merged_data <- merged_data %>%
+  arrange(ID, time) %>%
+  group_by(ID)
