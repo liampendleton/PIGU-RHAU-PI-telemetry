@@ -26,7 +26,7 @@ source(here("Scripts", "supportingScripts/utility.R"))
 ############
 ## PIGU DATA
 # Load PIGU data
-PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
+PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data_UTM.csv"))
 PIGU_data$time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 
 # Multiple imputation to address temporal irregularity
@@ -35,10 +35,14 @@ crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
                     theta=c(0,0), fixPar=c(NA,NA),
                     retryFits=10) #retry fits until convergence
 
-PIGU_data_crw <- crwOut$crwPredict #isolate interpolated data
+PIGU_data_crw <- crwOut$crwPredict[,c(3,6,9:18)] #isolate interpolated data
 
-# Create time of day covariate
+#Create time of day covariate
 PIGU_data_crw$tod <- as.numeric(format(PIGU_data_crw$time, "%H")) + as.numeric(format(PIGU_data_crw$time, "%M"))/60 #decimal hours
+
+#Finish data
+PIGU_data <- PIGU_data_crw[,c(3,6,9:18)]
+
 
 ## CANT FIGURE OUT HOW TO RASTERIZE
 # # Create "distance to nest" covariate
@@ -78,7 +82,7 @@ covlist <- list(bathy = bathy_crop)
 # Prepare data for momentuHMM and calculate gradients
 tracks <- prepData(data = PIGU_data,
                    type = "UTM",
-                   coordNames = c("x", "y"),
+                   coordNames = c("mu.x", "mu.y"),
                    covNames = "tod",
                    spatialCovs = covlist,
                    gradient = TRUE,
@@ -90,17 +94,6 @@ dist <- list(mu="rw_mvnorm2") #random walk movement model with bivariate normal 
 formula <- ~cosinor(tod,period=24) #cosinor function to model rhythmic patterns. Use 24hr to align with daily rhythm
 stateNames <- c("encamped","exploratory", "foraging") #the states we want to identify
 stateCols <- c("#339FFF","#FFF333", "#FF3300") #colors for different states
-
-
-# create a test track
-# track_44067 <- tracks[tracks$ID == 44067,]
-
-# # Multiple imputation to address temporal irregularity
-# # fit crawl model
-# crwOut <- crawlWrap(obsData = track_44067, 
-#                     timeStep = seq(head(track_44067, 1), (tail(track_44067, 1)), "15 mins"), #Does this need to be looped through unique individuals in "tracks"?
-#                     theta=c(6.855, -0.007), fixPar=c(NA,NA)) #Not sure what to do here
-# IGNORE FOR NOW
 
 
 # specify model
@@ -115,7 +108,7 @@ fixPar <- list(mu=c(NA,1,2,
                     NA,1,2,
                     NA,3,4,5,6,8,NA,NA))
 
-PIGU_Fit <- fitCTHMM(tracks,Time.name="date_time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
+PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
                      optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu") ##TWO ERRORS: Dimension mismatch and time differences?
                                
