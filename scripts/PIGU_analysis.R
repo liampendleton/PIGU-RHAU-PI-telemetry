@@ -23,20 +23,31 @@ library(sf)
 
 source(here("Scripts", "supportingScripts/utility.R"))
 
+############
 ## PIGU DATA
-# load PIGU data
+# Load PIGU data
 PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
+PIGU_data$time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 
-# Create "distance to nest" covariate
-utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define PROJ string
-PIGU_origin <- st_as_sf(PIGU_data, coords = c("x", "y"), crs=32610) #EPSG:32610 for WGS84 10M
-PIGU_dest <- st_as_sf(PIGU_data, coords = c("nest_x", "nest_y"), crs=32610)
-PIGU_data$dist2nest <- st_distance(PIGU_origin, PIGU_dest,  by_element = TRUE)
+# Multiple imputation to address temporal irregularity
+# fit crawl model
+crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
+                    theta=c(0,0), fixPar=c(NA,NA),
+                    retryFits=10) #retry fits until convergence
+
+PIGU_data_crw <- crwOut$crwPredict #isolate interpolated data
 
 # Create time of day covariate
-PIGU_data$date_time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
-PIGU_data$tod <- as.numeric(format(PIGU_data$date_time, "%H")) + as.numeric(format(PIGU_data$date_time, "%M"))/60
+PIGU_data_crw$tod <- as.numeric(format(PIGU_data_crw$time, "%H")) + as.numeric(format(PIGU_data_crw$time, "%M"))/60 #decimal hours
 
+## CANT FIGURE OUT HOW TO RASTERIZE
+# # Create "distance to nest" covariate
+# utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define PROJ string
+# PIGU_origin <- st_as_sf(PIGU_data, coords = c("x", "y"), crs = 32610) #EPSG:32610 for WGS84 10M
+# PIGU_dest <- st_as_sf(PIGU_data, coords = c("nest_x", "nest_y"), crs = 32610)
+# PIGU_data$dist2nest <- st_distance(PIGU_origin, PIGU_dest, by_element = TRUE) #calculate dist2nest
+
+#################
 ## COVARIATE DATA
 # load in bathymetry data
 bathydata <- nc_open(here("data", "gebco_2023_n48.8518_s47.1651_w-124.837_e-122.1564.nc")) #obtained from NOAA's ETOPO 2022 Grid Extract on 4/8/2024
@@ -51,87 +62,16 @@ raster_bathy <- raster(t(bathy), xmn = min(lon), xmx = max(lon), ymn = min(lat),
 raster_bathy <- flip(raster_bathy, "y") #flip to proper orientation
 
 # Project to UTM coordinates
-library(rgdal)
+install.packages("rgdal")
 utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define UTM projection string
 raster_bathy_utm <- projectRaster(raster_bathy, crs = utm_proj) #project to UTM
 crop <- extent(c(xmin = 475, xmax = 525, ymin = 5300, ymax = 5350)) #set up layer crop
 bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
-# # Plotting tracks on top of bathymetry data; just for visualization
-# # Split PIGU_data by ID
-# grouped_data <- split(PIGU_data, PIGU_data$ID)
-# 
-# # Plot it!
-# for (id in names(grouped_data)) {
-#   plot(bathy_crop, asp = 1)
-#   points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
-#   title(paste("Individual ID:", id))
-# }
-
-#################################
-state <- st_read(here("data", "states", "cb_2018_us_state_500k.shp")) #for some reason I had to use this read command. there is another, read_sf() that you may need to use in different cases 
-wa <- state[state$NAME == "Washington", ] #filter to obtain WA state
-
-
-
-
-
-bird.list <- unique(PIGU_data$ID)
-
-# Pull out relevant data for one bird 
-i <- 6
-bird.data <- PIGU_data[which(PIGU_data$ID == bird.list[i]),] #i ID
-bird.data <- bird.data[order(bird.data$date_time),] #order by datetime
-diff <- bird.data$date_time[2:nrow(bird.data)] - bird.data$date_time[1:(nrow(bird.data) - 1)] #get differences between all consecutive points
-sort(diff)
-indices <- which(diff>35) #use diff thresholds
-#map the major gaps - where did they occur?
-
-
-for (i in indices) {
-  if (i < nrow(bird.data)) {  #ensure we don't go out of bounds
-    rows <- c(i, i + 1)  #get current index and the next one
-    gaps <- bird.data[rows, ]  #extract rows
-    ggplot() +
-      geom
-  }
-}
-
-
-
-
-
-test1 <- bird.data[948:949,]
-
-
-plot(bathy_crop, asp = 1)
-points(test1$x, test1$y, col = "red", pch = 20, cex = 2)
-
-# Plot it!
-for (id in names(grouped_data)) {
-  plot(bathy_crop, asp = 1)
-  points(grouped_data[[id]]$x, grouped_data[[id]]$y, col = "red", pch = 20, cex = 0.5)
-  title(paste("Individual ID:", id))
-}
-
-
-
-
-
-# Plot points against time to identify gaps
-plot(x = track_44067$date_time, 
-     y = rep(1,nrow(track_44067)))
-  
-
-
-
-
-
-
-
-
 # Close the NetCDF file
 nc_close(bathydata)
+#################################
+## MODEL SETUP
 
 covlist <- list(bathy = bathy_crop)
 
@@ -145,15 +85,11 @@ tracks <- prepData(data = PIGU_data,
                    altCoordNames="mu") #if raster stack, must have z values (time, date, etc.)
 
 
-
-nbStates <- 2
-dist <- list(mu="rw_mvnorm2")
-formula <- ~cosinor(tod,period=24)
-stateNames <- c("encamped","exploratory")
-stateCols <- c("#56B4E9","#E69F00")
-
-
-
+nbStates <- 3 #three hidden states
+dist <- list(mu="rw_mvnorm2") #random walk movement model with bivariate normal distribution
+formula <- ~cosinor(tod,period=24) #cosinor function to model rhythmic patterns. Use 24hr to align with daily rhythm
+stateNames <- c("encamped","exploratory", "foraging") #the states we want to identify
+stateCols <- c("#339FFF","#FFF333", "#FF3300") #colors for different states
 
 
 # create a test track
@@ -163,18 +99,8 @@ stateCols <- c("#56B4E9","#E69F00")
 # # fit crawl model
 # crwOut <- crawlWrap(obsData = track_44067, 
 #                     timeStep = seq(head(track_44067, 1), (tail(track_44067, 1)), "15 mins"), #Does this need to be looped through unique individuals in "tracks"?
-#                     theta=c(6.855, -0.007), fixPar=c(NA,NA)) #IDK WHAT TO DO HERE
+#                     theta=c(6.855, -0.007), fixPar=c(NA,NA)) #Not sure what to do here
 # IGNORE FOR NOW
-
-dist <- list(mu="rw_mvnorm2")
-
-
-
-
-
-
-
-
 
 
 # specify model
@@ -184,7 +110,15 @@ DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
                    sd.y=~1,
                    corr.xy=~1))
 
+fixPar <- list(mu=c(NA,1,2,
+                    NA,3,4,
+                    NA,1,2,
+                    NA,3,4,5,6,8,NA,NA))
 
+PIGU_Fit <- fitCTHMM(tracks,Time.name="date_time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
+                     Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
+                     optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu") ##TWO ERRORS: Dimension mismatch and time differences?
+                               
 
 
 
