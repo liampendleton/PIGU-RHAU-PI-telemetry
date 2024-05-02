@@ -109,9 +109,9 @@ fixPar <- list(mu=c(NA,1,2,
                     NA,1,2,
                     NA,3,4,
                     NA,5,6,
-                    5,6,
-                    5,6,
-                    NA,NA))
+                    5,6,7,
+                    5,6,7,
+                    NA,NA,NA))
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
