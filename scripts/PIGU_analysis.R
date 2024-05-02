@@ -105,8 +105,13 @@ DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
 
 fixPar <- list(mu=c(NA,1,2,
                     NA,3,4,
+                    NA,5,6,
                     NA,1,2,
-                    NA,3,4,5,6,6,6,NA,NA))
+                    NA,3,4,
+                    NA,5,6,
+                    5,6,
+                    5,6,
+                    NA,NA))
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
