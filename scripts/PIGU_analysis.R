@@ -103,15 +103,15 @@ DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
                    sd.y=~1,
                    corr.xy=~1))
 
-fixPar <- list(mu=c(NA,1,2,
-                    NA,3,4,
-                    NA,5,6,
-                    NA,1,2,
-                    NA,3,4,
-                    NA,5,6,
-                    5,6,7,
-                    5,6,7,
-                    NA,NA,NA))
+fixPar <- list(mu=c(NA,1,2, #x state 1
+                    NA,3,4, #x state 2
+                    NA,5,6, #x state 3
+                    NA,1,2, #y state 1
+                    NA,3,4, #y state 2
+                    NA,5,6, #y state 3
+                    5,6,7, #SD for x 1:3
+                    5,6,7, #SD for y 1:3
+                    NA,NA,NA)) #corr xy 1:3?
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
