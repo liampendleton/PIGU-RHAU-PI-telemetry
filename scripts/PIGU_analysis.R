@@ -114,7 +114,7 @@ fixPar <- list(mu=c(NA,1,2, #x state 1
                     NA,NA,NA)) #corr xy 1:3?
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
-                     Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-4,-2,0,0)),fixPar=fixPar,
+                     Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-2,-4,-2,-2,0,0,0)),fixPar=fixPar,
                      optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu") ##TWO ERRORS: Dimension mismatch and time differences?
                                
 
