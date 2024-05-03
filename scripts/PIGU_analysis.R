@@ -23,7 +23,7 @@ library(sf)
 
 source(here("Scripts", "supportingScripts/utility.R"))
 
-############
+#########################################################
 ## PIGU DATA
 # Load PIGU data
 PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
@@ -59,7 +59,7 @@ PIGU_data <- PIGU_data_crw
 # PIGU_dest <- st_as_sf(PIGU_data, coords = c("nest_x", "nest_y"), crs = 32610)
 # PIGU_data$dist2nest <- st_distance(PIGU_origin, PIGU_dest, by_element = TRUE) #calculate dist2nest
 
-#################
+#########################################################
 ## COVARIATE DATA
 # load in bathymetry data
 bathydata <- nc_open(here("data", "gebco_2023_n48.8518_s47.1651_w-124.837_e-122.1564.nc")) #obtained from NOAA's ETOPO 2022 Grid Extract on 4/8/2024
@@ -82,7 +82,7 @@ bathy_crop <- crop(raster_bathy_utm, crop) #crop raster to specified boundaries
 
 # Close the NetCDF file
 nc_close(bathydata)
-#################################
+#########################################################
 ## MODEL SETUP
 
 covlist <- list(bathy = bathy_crop)
@@ -104,6 +104,10 @@ stateNames <- c("encamped","exploratory", "foraging") #the states we want to ide
 stateCols <- c("#339FFF","#FFF333", "#FF3300") #colors for different states
 
 
+StartPar <- getParDM(nbStates = nbStates, dist = dist,
+                     Par)
+
+
 # specify model
 DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
                    mean.y=~0+mu.y_tm1+crw(mu.y_tm1)+langevin(bathy.y),
@@ -122,7 +126,15 @@ fixPar <- list(mu=c(NA,1,2, #x state 1
                     NA,NA,NA)) #corr xy 1:3?
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
-                     Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-2,-4,-2,-2,0,0,0)),fixPar=fixPar,
+                     Par0=list(mu=c(1,0,0,
+                                    1,0,0,
+                                    1,0,0,
+                                    1,0,0,
+                                    1,0,0,
+                                    1,0,0,
+                                    -4,-2,-2,
+                                    -4,-2,-2,
+                                    0,0,0)),fixPar=fixPar,
                      optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu")
 
 ###############################################
