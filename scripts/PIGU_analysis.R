@@ -115,8 +115,69 @@ fixPar <- list(mu=c(NA,1,2, #x state 1
 
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,-4,-2,-2,-4,-2,-2,0,0,0)),fixPar=fixPar,
-                     optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu") ##TWO ERRORS: Dimension mismatch and time differences?
-                               
+                     optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu")
+
+###############################################
+## Adapting McClintock code down here
+# plot pseudo-residuals
+plotPR(PIGU_Fit)
+
+# plot stationary distribution as a function of time of day
+stpr <- plotStationary(PIGU_Fit,plotCI=TRUE,col=stateCols,return=TRUE)
+
+# Viterbi-decoded states
+st <- viterbi(PIGU_Fit)
+
+# state 1 UD (encamped)
+XB1 <- logUD1 <- bathy_crop * PIGU_Fit$CIbeta$mu$est[3]
+values(logUD1) <- getValues(XB1) - log(sum(Brobdingnag::brob(getValues(XB1)))) #normalize
+
+# state 2 UD (exploratory)
+XB2 <- logUD2 <- bathy_crop * PIGU_Fit$CIbeta$mu$est[9]
+values(logUD2) <- getValues(XB2) - log(sum(Brobdingnag::brob(getValues(XB2)))) #normalize
+
+# state 3 UD (foraging)
+XB3 <- logUD3 <- bathy_crop * PIGU_Fit$CIbeta$mu$est[9]
+values(logUD3) <- getValues(XB2) - log(sum(Brobdingnag::brob(getValues(XB2)))) #normalize
+
+par(mfrow=c(1,2))
+raster::plot(logUD1,col=scico(palette="roma",256,direction=-1),main=stateNames[1],xlab="easting (km)",ylab="northing (km)")
+points(zebraFit$data[,c("mu.x_tm1","mu.y_tm1")][which(st==1),],col=stateCols[1],pch=20)
+raster::plot(logUD2,col=scico(palette="roma",256,direction=-1),main=stateNames[2],xlab="easting (km)")
+points(zebraFit$data[,c("mu.x_tm1","mu.y_tm1")][which(st==2),],col=stateCols[2],pch=20)
+
+# mixture of both UDs based on time spent in each state
+tis <- timeInStates(zebraFit) # activity budgets
+logUD <- log(tis$encamped*exp(logUD1) + tis$exploratory*exp(logUD2))
+plotSpatialCov(zebraFit,logUD,colors=scico(palette="roma",256,direction=-1),col=stateCols)
+
+# plot the habitat selection coefficients
+beta <- rbind(as.data.frame(lapply(zebraFit$CIbeta$mu,function(x) x[,3:6])),as.data.frame(lapply(zebraFit$CIbeta$mu,function(x) x[,9:12])))
+beta$cov <- c("grassland","bushed grassland","bushland","woodland")
+beta$state <- rep(stateNames,each=4)
+
+ggplot(beta, aes(x=factor(cov,level=beta$cov[1:4]), y=est, group=state, colour=state)) + scale_color_manual(values = stateCols) +
+  geom_point(position=position_dodge(width=0.25)) + geom_errorbar(aes(ymin=lower, ymax=upper),position=position_dodge(width=0.25), width=.1) +
+  xlab("distance to habitat type") + ylab(expression(beta)) +
+  theme(legend.text = element_text(size = rel(1.15)),legend.title=element_text(size=rel(1.35)),axis.title=element_text(size = rel(1.25)),axis.text=element_text(size = rel(1.15)))
+
+# steps and turns by state
+par(mfrow=c(2,2))
+hist(zebraFit$data$step[which(st==1)],breaks=seq(0,4.5,length=40),main="encamped step lengths")
+hist(zebraFit$data$angle[which(st==1)],breaks=seq(-pi,pi,length=40),main="encamped turn angles")
+hist(zebraFit$data$step[which(st==2)],breaks=seq(0,4.5,length=40),main="exploratory step lengths")
+hist(zebraFit$data$angle[which(st==2)],breaks=seq(-pi,pi,length=40),main="exploratory turn angles")
+
+par(mfrow=c(4,2))
+for(j in c("grass","bushgrass","bush","wood")){
+  hist(zebraFit$data[[j]][which(st==1)],breaks=seq(min(zebraFit$data[[j]]),max(zebraFit$data[[j]]),length=40),main=paste0("encamped: ",j))
+  hist(zebraFit$data[[j]][which(st==2)],breaks=seq(min(zebraFit$data[[j]]),max(zebraFit$data[[j]]),length=40),main=paste0("exploratory: ",j))
+}
+
+# MALA simulation
+mala <- malaSim(zebraFit,list(parIndex=list(c(3:6),c(9:12)),covNames=list(c("grass","bushgrass","bush","wood"),c("grass","bushgrass","bush","wood"))),niter=50,ssl=FALSE)
+apply(mala,2,mean)
+
 
 
 
