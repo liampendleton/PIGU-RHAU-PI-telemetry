@@ -91,5 +91,5 @@ PIGU_data <- PIGU_nest_data %>%
   arrange(ID, time)
 
 # Save the data!
-write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data_UTM.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
+write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
 
