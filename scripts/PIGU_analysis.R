@@ -26,7 +26,7 @@ source(here("Scripts", "supportingScripts/utility.R"))
 ############
 ## PIGU DATA
 # Load PIGU data
-PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data_UTM.csv"))
+PIGU_data <- read.csv(here("data", "PIGU_data", "PIGU_data.csv"))
 PIGU_data$time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX 
 
 # Multiple imputation to address temporal irregularity
