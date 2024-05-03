@@ -32,16 +32,24 @@ PIGU_data$time <- as.POSIXct(PIGU_data$time,tz="UTC") #convert times to POSIX
 # Multiple imputation to address temporal irregularity
 # fit crawl model
 crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
-                    theta=c(0,0), fixPar=c(NA,NA),
-                    retryFits=10) #retry fits until convergence
+                    theta=list(c(0.658,2.715),
+                               c(0.644,2.890),
+                               c(1.408,16.170),
+                               c(-0.171,13.895),
+                               c(0.249,2.991),
+                               c(0.267,2.647)), #theta values obtained from iterating through different values and monitoring output; see below
+                    fixPar=c(NA,NA))
 
-PIGU_data_crw <- crwOut$crwPredict[,c(3,6,9:18)] #isolate interpolated data
+crwOutFits <- crwOut$crwFits #observe parameter estimates and AIC/LL
+print(crwOutFits) #iterate through theta values above (crawlWrap) using sigma and beta
+
+PIGU_data_crw <- crwOut$crwPredict[,c(3,6,9:17)] #isolate interpolated data
 
 #Create time of day covariate
 PIGU_data_crw$tod <- as.numeric(format(PIGU_data_crw$time, "%H")) + as.numeric(format(PIGU_data_crw$time, "%M"))/60 #decimal hours
 
 #Finish data
-PIGU_data <- PIGU_data_crw[,c(3,6,9:18)]
+PIGU_data <- PIGU_data_crw
 
 
 ## CANT FIGURE OUT HOW TO RASTERIZE
