@@ -96,25 +96,21 @@ tracks <- prepData(data = PIGU_data,
                    gradient = TRUE,
                    altCoordNames="mu") #if raster stack, must have z values (time, date, etc.)
 
-
+# Background setup
 nbStates <- 3 #three hidden states
 dist <- list(mu="rw_mvnorm2") #random walk movement model with bivariate normal distribution
 formula <- ~cosinor(tod,period=24) #cosinor function to model rhythmic patterns. Use 24hr to align with daily rhythm
 stateNames <- c("encamped","exploratory", "foraging") #the states we want to identify
 stateCols <- c("#339FFF","#FFF333", "#FF3300") #colors for different states
 
-
-StartPar <- getParDM(nbStates = nbStates, dist = dist,
-                     Par)
-
-
-# specify model
+# Specify model
 DM <- list(mu=list(mean.x=~0+mu.x_tm1+crw(mu.x_tm1)+langevin(bathy.x),
                    mean.y=~0+mu.y_tm1+crw(mu.y_tm1)+langevin(bathy.y),
                    sd.x=~1,
                    sd.y=~1,
                    corr.xy=~1))
 
+# Fix parameters; transition probabilities?
 fixPar <- list(mu=c(NA,1,2, #x state 1
                     NA,3,4, #x state 2
                     NA,5,6, #x state 3
@@ -125,6 +121,7 @@ fixPar <- list(mu=c(NA,1,2, #x state 1
                     5,6,7, #SD for y 1:3
                     NA,NA,NA)) #corr xy 1:3?
 
+# Fit the model
 PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,formula=formula,
                      Par0=list(mu=c(1,0,0,
                                     1,0,0,
@@ -134,7 +131,8 @@ PIGU_Fit <- fitCTHMM(tracks,Time.name="time",nbStates=nbStates,dist=dist,DM=DM,f
                                     1,0,0,
                                     -4,-2,-2,
                                     -4,-2,-2,
-                                    0,0,0)),fixPar=fixPar,
+                                    0,0,0)),
+                     fixPar=fixPar,
                      optMethod="TMB",control=list(silent=TRUE,trace=1),stateNames=stateNames,mvnCoords="mu")
 
 ###############################################
