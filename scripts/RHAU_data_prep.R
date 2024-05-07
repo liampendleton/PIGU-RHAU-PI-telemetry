@@ -46,7 +46,13 @@ RHAU_data <- data.frame(
   time = as.POSIXct(datetime_string, format = "%Y-%m-%d %H:%M:%S"
   ))
 
+# Let's reorganize data
+RHAU_data <- RHAU_data %>%
+  group_by(ID) %>%
+  arrange(time, .by_group = TRUE)
 
+# Save the latlon data!
+write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data_latlon.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
 ###############################
 ### PROJECT LOC DATA TO UTM ###
 ###############################
@@ -87,7 +93,7 @@ RHAU_nest_data <- merge(RHAU_data, nest_data, by = "ID", all.x = TRUE)
 # Let's reorganize data
 RHAU_data <- RHAU_nest_data %>%
   group_by(ID) %>%
-  arrange(ID, time)
+  arrange(time, .by_group = TRUE)
 
 # Save the data!
-write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
+write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data_UTM.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)

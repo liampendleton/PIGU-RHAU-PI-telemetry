@@ -48,11 +48,18 @@ PIGU_data <- data.frame(
   time = as.POSIXct(datetime_string, format = "%Y-%m-%d %H:%M:%S"
   ))
 
+# Let's reorganize data
+PIGU_data <- PIGU_data %>%
+  group_by(ID) %>%
+  arrange(time, .by_group = TRUE)
+
+# Save the latlon data!
+write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data_latlon.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
 ###############################
 ### PROJECT LOC DATA TO UTM ###
 ###############################
 
-utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
+utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs" #define the PROJ string
 
 # Convert x and y col to spdf
 PIGU_data_sp <- SpatialPointsDataFrame(coords = PIGU_data[, c(3, 2)],
@@ -91,5 +98,4 @@ PIGU_data <- PIGU_nest_data %>%
   arrange(ID, time)
 
 # Save the data!
-write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
-
+write.table(PIGU_data, file = here("data", "PIGU_data", "PIGU_data_UTM.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
