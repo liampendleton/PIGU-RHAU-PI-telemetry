@@ -70,14 +70,13 @@ stepMu0 <- c(5, 500, 100) #refer to stateNames. low resting movement, high explo
 stepSig0 <- c(2, 100, 50) #deviations
 stepPar0 <- c(stepMu0, stepSig0)
 
-angleSig0 <- c(9, 6, 0.5) #refer to stateNames. initial concentration parameters; little variation in angle, intermediate, high
-anglePar0 <- c(angleMu0, angleSig0)
+anglePar0 <- c(9, 6, 0.5) #refer to stateNames. initial concentration parameters; little variation in angle, intermediate, high
 
 # MODEL 1
 # Fit first model without covariates
 PIGU_HMM_1 <- fitHMM(data = tracks, nbStates = 3, 
                      dist = list(step="gamma", angle="vm"), 
-                     Par0 = list(step=stepPar0, angle=angleSig0),
+                     Par0 = list(step=stepPar0, angle=anglePar0),
                      estAngleMean = list(angle=FALSE),
                      stateNames = stateNames)
 
@@ -104,6 +103,6 @@ table(states)/nrow(tracks) #derive percentage of time spent in each state
 # Compare models
 AIC(PIGU_HMM_1, PIGU_HMM_2)
 
-# Save the output!
+# Save the output of best model!
 save(PIGU_HMM_1, file = here("results", "PIGU_HMM_1.RData"))
 #############################################
