@@ -64,8 +64,6 @@ hist(tracks$angle, breaks = 100)
 summary(tracks$angle)
 sd(tracks$angle, na.rm = TRUE)
 
-tracks <- tracks[!(tracks$ID == 44372 & tracks$y < 5327000),] #remove extraneous points
-
 stateNames <- c("resting", "exploring", "foraging")
 
 stepMu0 <- c(5, 500, 100) #refer to stateNames. low resting movement, high exploring movement, intermediate foraging movement
