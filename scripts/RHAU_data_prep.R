@@ -57,7 +57,7 @@ write.table(RHAU_data, file = here("data", "RHAU_data", "RHAU_data_latlon.csv"),
 ### PROJECT LOC DATA TO UTM ###
 ###############################
 
-utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=km +no_defs" #define the PROJ string
+utm_proj <- "+proj=utm +zone=10 +north +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs" #define the PROJ string
 
 # Convert x and y col to spdf
 RHAU_data_sp <- SpatialPointsDataFrame(coords = RHAU_data[, c(3, 2)],
