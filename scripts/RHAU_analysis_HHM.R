@@ -106,6 +106,12 @@ table(states)/nrow(tracks) #derive percentage of time spent in each state
 # Compare models
 AIC(RHAU_HMM_1, RHAU_HMM_2)
 
+# Psuedo-residuals for steps and angles
+pr <- pseudoRes(RHAU_HMM_1)
+
+# Plot ACF of step pseudo-residuals
+acf(pr$stepRes[!is.na(pr$stepRes)],lag.max = 300)
+
 # Save the output of best model!
 save(RHAU_HMM_1, file = here("results", "RHAU_HMM_1.RData"))
 ################################################################################
