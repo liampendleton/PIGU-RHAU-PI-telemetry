@@ -100,7 +100,7 @@ RHAU_HMM_2 <- fitHMM(data = tracks, nbStates = 3,
 
 
 # MODEL VALIDATION
-states <- viterbi(RHAU_HMM_2) #decode most likely state sequence; change out HMM models
+states <- viterbi(RHAU_HMM_1) #decode most likely state sequence; change out HMM models
 table(states)/nrow(tracks) #derive percentage of time spent in each state
 
 # Compare models

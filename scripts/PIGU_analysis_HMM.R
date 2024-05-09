@@ -103,6 +103,12 @@ table(states)/nrow(tracks) #derive percentage of time spent in each state
 # Compare models
 AIC(PIGU_HMM_1, PIGU_HMM_2)
 
+# Psuedo-residuals for steps and angles
+pr <- pseudoRes(PIGU_HMM_1)
+
+# Plot ACF of step pseudo-residuals
+acf(pr$stepRes[!is.na(pr$stepRes)],lag.max = 300)
+
 # Save the output of best model!
 save(PIGU_HMM_1, file = here("results", "PIGU_HMM_1.RData"))
 #############################################
