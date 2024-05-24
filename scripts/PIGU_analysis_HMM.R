@@ -2,6 +2,7 @@ library(here)
 library(momentuHMM)
 library(sf)
 library(dplyr)
+library(tidyr)
 #########################################################
 ## PIGU DATA
 # Load PIGU data
@@ -28,17 +29,30 @@ crwOut <- crawlWrap(obsData = PIGU_data, timeStep = "15 mins",
 crwOutFits <- crwOut$crwFits #observe parameter estimates and AIC/LL
 print(crwOutFits) #iterate through theta values above (crawlWrap) using sigma and beta
 
-PIGU_data_crw <- crwOut$crwPredict[,c(3,6,9:17)] #isolate interpolated data
+PIGU_data_crw <- crwOut$crwPredict[,c(3,6,7:17)] #isolate interpolated data
 
 PIGU_data_crw <- PIGU_data_crw %>%
   group_by(ID) %>%
   arrange(time, .by_group = TRUE)
 
-#Create time of day covariate
+# Create time of day covariate
 PIGU_data_crw$tod <- as.numeric(format(PIGU_data_crw$time, "%H")) + as.numeric(format(PIGU_data_crw$time, "%M"))/60 #decimal hours
 
-#Finish data
+# Save interpolated data
+# write.table(PIGU_data_crw, file = here("data", "PIGU_data", "PIGU_data_crw.csv"), col.names = TRUE, row.names = FALSE, sep = ",", quote = FALSE)
+
+# Finish data
 PIGU_data <- PIGU_data_crw
+
+# Fill in missing nest coordinates for each individual post-imputation
+PIGU_data <- PIGU_data %>%
+  group_by(ID) %>%
+  fill(nest_x, nest_y, .direction = "downup") %>%
+  ungroup()
+
+# Calculate dist2nest
+PIGU_data$dist2nest <- sqrt((PIGU_data$mu.x - PIGU_data$nest_x)^2 + (PIGU_data$mu.y - PIGU_data$nest_y)^2)
+
 
 #########################################################
 ## MODEL SETUP
@@ -60,7 +74,7 @@ hist(tracks$step, breaks = 50, xlim=c(0,4000))
 summary(tracks$step) #look at mean and median
 sd(tracks$step, na.rm = TRUE)
 # Turn angle
-hist(tracks$angle, breaks = 100)
+hist(tracks$angle, breaks = 50)
 summary(tracks$angle)
 sd(tracks$angle, na.rm = TRUE)
 
