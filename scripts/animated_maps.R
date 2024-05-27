@@ -38,7 +38,7 @@ RHAU_45663 <- RHAU_data[RHAU_data$ID == 45663,]
 RHAU_45672 <- RHAU_data[RHAU_data$ID == 45672,]
 
 # Google Key
-register_google(key = "AIzaSyBHrNrmjoXOcEyBmXKiO_ensZUfICCznqU", write = TRUE)
+register_google(key = "xxxx", write = TRUE)
 
 map_bounds <- c(left = -123.074633, #PIGU
                 bottom = 48.012008,
