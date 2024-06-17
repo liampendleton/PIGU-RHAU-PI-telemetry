@@ -1,6 +1,9 @@
 library(dplyr)
 library(momentuHMM)
 library(here)
+library(ggplot2)
+library(cowplot)
+library(patchwork)
 
 #################
 ### PIGU DATA ###
@@ -66,6 +69,88 @@ plot(x=RHAU_HMM_1, animals="45701", col=c(rgb(0.5, 0.75, 0.93, 0.2), rgb(1, 0.5,
 
 # Create composite step and angle plots
 plot(RHAU_HMM_1, plotCI=TRUE, breaks=25)
+
+################################################################################
+
+track44067 <- tracks %>%
+  filter(ID == 44067) %>%
+  mutate(state = states[1:length(time)])
+
+ggplot(track44067, aes(x = time)) +
+  geom_point(aes(y = step, color = "red"), size = 2) +
+  geom_point(aes(y = angle, color = "blue"), size = 2, shape = 17) +
+  geom_line(aes(y = as.numeric(state), color = "State", lwd = 1)) +
+  
+
+
+p_step <- ggplot(track44067, aes(x = time, y = step)) +
+  geom_point(aes(y = step, color = "red"), size = 2) +
+  labs(y = "Step Length (meters)") +
+  theme(axis.line = element_line())
+
+p_angle <- ggplot(track44067, aes(x = time)) +
+  geom_point(aes(y = angle, color = "blue"), size = 2, shape = 17) +
+  labs(y = "Angle concentration (k)")
+
+p_states <- ggplot(track44067, aes(x = time)) +
+  geom_line(aes(y = as.numeric(state), color = "State", lwd = 0.5)) +
+  labs(y = "State Sequence")
+
+
+wrap_elements(get_plot_component(p_step, "ylab-l")) +
+  wrap_elements(get_y_axis(p_step)) +
+  wrap_elements(get_plot_component(p_angle, "ylab-l")) +
+  wrap_elements(get_y_axis(p_angle)) +
+  p_states +
+  plot_layout(widths = c(3,1,3,1,40))
+
+
+
+
+
+
+
+
+
+
+library(plotly)
+plot_ly(data = track44067) %>% 
+  add_lines(x = ~time, y = ~state, 
+            color = I("red")) %>% 
+  add_markers(x = ~time, y = ~step, yaxis = "y2", 
+              color = I("blue")) %>%
+  add_markers(x = ~time, y = ~angle, yaxis = "y3", 
+           color = I("purple")) %>%
+  layout(
+    yaxis = list(showline = TRUE, side = "right", color = "red",  title = "State Sequence"),
+    yaxis2 = list(showline = TRUE, side = "left", color = "blue", title = "Step Length (meters)"), 
+    yaxis3 = list(showline = TRUE, side = "left", anchor = "free", overlaying = "y", color = "purple", title = "Angle Concentration (k)"),
+    xaxis = list(showline = FALSE, zeroline = FALSE, dtick = 1, title = "Time"), 
+    showlegend = FALSE, 
+    margin = list(pad = 50, b = 90, l = 150, r = 90),
+    legend = list(orientation = "h"))
+
+
+
+
+# Create the plot with color adjustments
+plot_ly(data = track44067) %>%
+  add_lines(x = ~time, y = ~state, 
+            color = I("black"), name = "State Sequence", line = list(width = 3)) %>%
+  add_markers(x = ~time, y = ~step, yaxis = "y2", 
+              color = I("red"), name = "Step Length") %>%
+  add_markers(x = ~time, y = ~angle, yaxis = "y3", 
+              color = I("purple"), name = "Turn Angle") %>%
+  layout(
+    yaxis = list(showline = TRUE, side = "right", color = "black", title = "State Sequence",
+                 tickmode = "array", tickvals = c(1, 2, 3), ticktext = c("1", "2", "3")),
+    yaxis2 = list(showline = TRUE, side = "left", color = "red", title = "Step Length (meters)"), 
+    yaxis3 = list(showline = TRUE, side = "left", anchor = "free", overlaying = "y2", color = "purple", 
+                  title = "Angle (degrees)", position = 0.1),  # Adjust the position if necessary
+    xaxis = list(showline = FALSE, zeroline = FALSE, dtick = 1, title = "Time"), 
+    showlegend = TRUE, 
+    margin = list(pad = 50, b = 90, l = 150, r = 90),
+    legend = list(orientation = "h", x = 0.1, y = 1.1))
 
 
 
